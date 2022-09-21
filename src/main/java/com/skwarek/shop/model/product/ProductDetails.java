@@ -1,5 +1,6 @@
 package com.skwarek.shop.model.product;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,5 +26,9 @@ public class ProductDetails {
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    @OneToOne(mappedBy = "productDetails", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Product product;
 
 }
