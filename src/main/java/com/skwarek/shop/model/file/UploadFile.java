@@ -1,4 +1,4 @@
-package com.skwarek.shop.model.order;
+package com.skwarek.shop.model.file;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -6,25 +6,23 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "orders")
-public class Order {
+@Table(name = "upload_file")
+public class UploadFile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
+    @Column(name = "file_name")
+    private String fileName;
 
-    @Column(name = "amount")
-    private BigDecimal amount;
+    @Column(name = "data")
+    private byte[] data;
 
 }
