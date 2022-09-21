@@ -13,10 +13,10 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "comments")
+@Table(name = "comment")
 public class Comment {
 
-    @Column
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -26,13 +26,16 @@ public class Comment {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
     @Column(name = "content")
     private String content;
 
-    @Column(name = "like")
-    private Integer like;
+    @Column(name = "number_of_likes")
+    private Integer numberOfLikes;
 
-    @Column(name = "dislike")
-    private Integer dislike;
+    @Column(name = "number_of_dislikes")
+    private Integer numberOfDislikes;
 
 }
