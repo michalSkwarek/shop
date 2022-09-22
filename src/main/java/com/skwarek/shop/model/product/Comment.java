@@ -24,7 +24,8 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "rating")
+    @Column(name = "rating", columnDefinition = "ENUM('ZERO', 'ONE', 'TWO', 'THREE', 'FOUR', 'FIVE')")
+    @Enumerated(EnumType.STRING)
     private Rating rating;
 
     @Column(name = "created_at")
@@ -49,7 +50,7 @@ public class Comment {
     private Product product;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "created_by_id")
+    @JoinColumn(name = "account_id")
     @JsonIgnore
     private Account createdBy;
 

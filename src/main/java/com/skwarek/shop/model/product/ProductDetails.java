@@ -33,7 +33,7 @@ public class ProductDetails {
     private Product product;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "created_by_id")
+    @JoinColumn(name = "account_id")
     @JsonIgnore
     private Account createdBy;
 

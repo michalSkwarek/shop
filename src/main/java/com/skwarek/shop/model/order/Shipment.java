@@ -30,7 +30,8 @@ public class Shipment {
     @Column(name = "delivery_date")
     private LocalDateTime deliveryDate;
 
-    @Column(name = "shipment_status")
+    @Column(name = "shipment_status", columnDefinition = "ENUM('PROCESSING', 'SHIPPED', 'IN_TRANSIT', 'DELIVERED')")
+    @Enumerated(EnumType.STRING)
     private ShipmentStatus shipmentStatus;
 
     @OneToOne(fetch = FetchType.LAZY)

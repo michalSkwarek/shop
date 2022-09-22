@@ -38,7 +38,8 @@ public class Account {
     @Column(name = "enabled")
     private Boolean enabled;
 
-    @Column(name = "role")
+    @Column(name = "role", columnDefinition = "ENUM('ADMIN', 'MODERATOR', 'USER')")
+    @Enumerated(EnumType.STRING)
     private Role role;
 
 }

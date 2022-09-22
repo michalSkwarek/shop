@@ -36,7 +36,8 @@ public class Address {
     @Column(name = "city")
     private String city;
 
-    @Column(name = "country")
+    @Column(name = "country", columnDefinition = "ENUM('BELARUS', 'CZECHIA', 'GERMANY', 'LITHUANIA', 'POLAND', 'RUSSIA', 'SLOVAKIA', 'UKRAINE')")
+    @Enumerated(EnumType.STRING)
     private Country country;
 
     @OneToOne(mappedBy = "billingAddress", fetch = FetchType.LAZY)
