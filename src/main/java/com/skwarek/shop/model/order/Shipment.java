@@ -1,5 +1,6 @@
 package com.skwarek.shop.model.order;
 
+import com.skwarek.shop.model.address.Address;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,5 +32,13 @@ public class Shipment {
 
     @Column(name = "shipment_status")
     private ShipmentStatus shipmentStatus;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id")
+    private Order order;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "shipping_address_id")
+    private Address shippingAddress;
 
 }
