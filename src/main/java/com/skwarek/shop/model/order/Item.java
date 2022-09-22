@@ -1,5 +1,6 @@
 package com.skwarek.shop.model.order;
 
+import com.skwarek.shop.model.product.Product;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,5 +29,13 @@ public class Item {
 
     @Column(name = "amount")
     private BigDecimal amount;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id")
+    private Product product;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id")
+    private Order order;
 
 }
