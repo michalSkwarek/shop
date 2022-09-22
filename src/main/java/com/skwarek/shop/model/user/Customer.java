@@ -1,5 +1,6 @@
 package com.skwarek.shop.model.user;
 
+import com.skwarek.shop.model.address.Address;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,5 +32,13 @@ public class Customer {
 
     @Column(name = "phone_number")
     private String phoneNumber;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "account_id")
+    private Account account;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "billing_address_id")
+    private Address billingAddress;
 
 }

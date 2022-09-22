@@ -1,5 +1,7 @@
 package com.skwarek.shop.model.address;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.skwarek.shop.model.user.Customer;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,5 +38,9 @@ public class Address {
 
     @Column(name = "country")
     private Country country;
+
+    @OneToOne(mappedBy = "billingAddress", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Customer customer;
 
 }
