@@ -1,5 +1,8 @@
 package com.skwarek.shop.model.file;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.skwarek.shop.model.product.Company;
+import com.skwarek.shop.model.product.Product;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,5 +27,13 @@ public class UploadFile {
 
     @Column(name = "data")
     private byte[] data;
+
+    @OneToOne(mappedBy = "picture", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Product product;
+
+    @OneToOne(mappedBy = "logo", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Company company;
 
 }

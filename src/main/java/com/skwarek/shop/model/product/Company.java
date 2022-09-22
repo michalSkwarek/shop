@@ -1,5 +1,6 @@
 package com.skwarek.shop.model.product;
 
+import com.skwarek.shop.model.file.UploadFile;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,5 +28,9 @@ public class Company {
 
     @Column(name = "phone_number")
     private String phoneNumber;
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "logo_id")
+    private UploadFile logo;
 
 }
