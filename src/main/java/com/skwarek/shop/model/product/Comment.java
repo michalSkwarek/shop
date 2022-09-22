@@ -1,6 +1,7 @@
 package com.skwarek.shop.model.product;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.skwarek.shop.model.user.Account;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -46,5 +47,10 @@ public class Comment {
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
     private Product product;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name = "created_by_id")
+    @JsonIgnore
+    private Account createdBy;
 
 }

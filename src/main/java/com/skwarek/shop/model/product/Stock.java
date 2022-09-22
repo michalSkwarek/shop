@@ -21,4 +21,9 @@ public class Stock {
 
     @Column(name = "quantity")
     private int quantity;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id")
+    private Product product;
+
 }
