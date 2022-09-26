@@ -1,0 +1,100 @@
+--------------------------------------------------
+Welcome
+GET     / /welcome
+
+Login
+GET     /login
+GET     /accessDenied
+
+Account
+{
+    "username": "new account username",
+    "password": "new account password",
+    "email": "new account email",
+    "createdAt": "",
+    "updatedAt": "",
+    "enabled": true
+}
+GET     /accounts
+GET     /accounts/{username}
+POST    /accounts/create
+PUT     /accounts/{username}
+DELETE  /accounts/{username}
+
+Customer
+GET     /customers
+GET     /customers/{id}
+POST    /customers/create
+PUT     /customers/{id}
+DELETE  /customers/{id}
+
+Address
+GET     /addresses
+GET     /addresses/{id}
+POST    /addresses/create
+PUT     /addresses/{id}
+DELETE  /addresses/{id}
+
+Category
+GET     /categories
+GET     /categories/{id}
+POST    /categories/create
+PUT     /categories/{id}
+DELETE  /categories/{id}
+
+Company
+GET     /companies
+GET     /companies/{id}
+POST    /companies/create
+PUT     /companies/{id}
+DELETE  /companies/{id}
+
+UploadFile
+GET     /companyImages/{companyId}
+GET     /productImages/{productId}
+
+Product
+GET     /products
+GET     /products/{id}
+GET     /products?category=[keyword]
+GET     /products?company=[keyword]
+POST    /products/create
+PUT     /products/{id}
+DELETE  /products/{id}
+GET     /products/{id}/specs
+POST    /products/{id}/specs
+PUT     /products/{id}/specs
+DELETE  /products/{id}/specs
+
+Comment
+GET     /accounts/{username}/comments
+GET	    /products/{id}/comments
+GET	    /comments/{id}
+POST	/products/{id}/comments
+PUT	    /comments/{id}
+DELETE	/comments/{id}
+
+Tag
+GET	    /tags
+GET	    /tags/{id}
+POST	/products/{id}/tags
+PUT	    /tags/{id}
+DELETE	/tags/{id}
+GET	    /products/{id}/tags
+GET	    /tags/{id}/products
+DELETE	/products/{id}/tags/{id}
+DELETE	/tags/{id}/products/{id}
+
+Order
+GET     /accounts/{username}/orders
+GET     /orders/{id}
+POST    /accounts/{username}/orders
+PUT	    /orders/{id}
+DELETE	/orders/{id}
+
+Shipment
+GET     /shipments
+GET     /shipments/{id}
+POST    /shipments/create
+PUT     /shipments/{id}
+DELETE  /shipments/{id}
