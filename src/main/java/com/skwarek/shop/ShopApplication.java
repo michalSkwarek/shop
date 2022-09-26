@@ -15,6 +15,7 @@ public class ShopApplication {
 
     @GetMapping(value = {"/", "/hello"})
     public String sayHello() {
+
         return "Hello you";
     }
 
