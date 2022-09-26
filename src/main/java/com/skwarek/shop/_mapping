@@ -11,9 +11,16 @@ Account
     "username": "new account username",
     "password": "new account password",
     "email": "new account email",
-    "createdAt": "",
-    "updatedAt": "",
-    "enabled": true
+    "role": "USER"
+}
+{
+    "username": "updated account username",
+    "password": "updated account username",
+    "email": "updated account username",
+    "createdAt": "2009-06-05 11:44:07",
+    "updatedAt": "2009-06-06 12:44:07",
+    "enabled": true,
+    "role": "MODERATOR"
 }
 GET     /accounts
 GET     /accounts/{username}
