@@ -10,15 +10,13 @@ Account
 {
     "username": "new account username",
     "password": "new account password",
-    "email": "new account email",
-    "role": "USER"
+    "email": "new account email"
 }
 {
-    "username": "updated account username",
-    "password": "updated account username",
-    "email": "updated account username",
+    "username": "updated",
+    "password": "updated account password",
+    "email": "updated account email",
     "createdAt": "2009-06-05 11:44:07",
-    "updatedAt": "2009-06-06 12:44:07",
     "enabled": true,
     "role": "MODERATOR"
 }

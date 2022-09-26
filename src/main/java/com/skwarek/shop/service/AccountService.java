@@ -1,12 +1,19 @@
 package com.skwarek.shop.service;
 
 import com.skwarek.shop.model.user.Account;
-import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 public interface AccountService {
 
-    Account findById(Long accountId);
+    List<Account> findAll();
 
     Account findByUsername(String username);
+
+    Account create(Account accountRequest);
+
+    Account update(String username, Account accountRequest);
+
+    void deleteByUsername(String username);
 
 }
