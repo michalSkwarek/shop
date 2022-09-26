@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -22,12 +23,14 @@ public class Shipment {
     private Long id;
 
     @Column(name = "shipping_date")
+    @DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
     private LocalDateTime shippingDate;
 
     @Column(name = "tracking_number")
     private String trackingNumber;
 
     @Column(name = "delivery_date")
+    @DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
     private LocalDateTime deliveryDate;
 
     @Column(name = "shipment_status", columnDefinition = "ENUM('PROCESSING', 'SHIPPED', 'IN_TRANSIT', 'DELIVERED')")
