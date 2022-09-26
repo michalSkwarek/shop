@@ -49,9 +49,8 @@ public class Comment {
     @JsonIgnore
     private Product product;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "account_id")
-    @JsonIgnore
     private Account createdBy;
 
 }

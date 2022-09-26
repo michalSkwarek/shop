@@ -1,5 +1,6 @@
 package com.skwarek.shop.model.order;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.skwarek.shop.model.user.Customer;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -31,5 +32,9 @@ public class Order {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
     private Customer customer;
+
+    @OneToOne(mappedBy = "order", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Shipment shipment;
 
 }

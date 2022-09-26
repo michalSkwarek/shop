@@ -1,5 +1,6 @@
 package com.skwarek.shop.model.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -41,5 +42,9 @@ public class Account {
     @Column(name = "role", columnDefinition = "ENUM('ADMIN', 'MODERATOR', 'USER')")
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @OneToOne(mappedBy = "account", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Customer customer;
 
 }
