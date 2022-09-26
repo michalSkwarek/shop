@@ -25,4 +25,7 @@ public class ProductSpecs {
     @JsonIgnore
     private Product product;
 
+    @Column(name = "name")
+    private String name;
+
 }

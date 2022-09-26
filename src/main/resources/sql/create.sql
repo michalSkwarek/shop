@@ -41,10 +41,10 @@ INSERT INTO upload_file (id, file_name, data) VALUES (3, 'product3.jpg', null);
 INSERT INTO upload_file (id, file_name, data) VALUES (4, 'product4.jpg', null);
 
 -- add few product specs
-INSERT INTO product_specs (id) VALUES (1);
-INSERT INTO product_specs (id) VALUES (2);
-INSERT INTO product_specs (id) VALUES (3);
-INSERT INTO product_specs (id) VALUES (4);
+INSERT INTO product_specs (id, name) VALUES (1, 'spec 1');
+INSERT INTO product_specs (id, name) VALUES (2, 'spec 2');
+INSERT INTO product_specs (id, name) VALUES (3, 'spec 3');
+INSERT INTO product_specs (id, name) VALUES (4, 'spec 4');
 
 -- add few product details
 INSERT INTO product_details (id, created_at, updated_at, account_id) VALUES (1, STR_TO_DATE('21-03-2007 05:31:55', '%d-%m-%Y %H:%i:%s'), STR_TO_DATE('21-03-2007 06:31:55', '%d-%m-%Y %H:%i:%s'), 1);
