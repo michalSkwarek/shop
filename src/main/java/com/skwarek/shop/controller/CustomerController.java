@@ -39,8 +39,8 @@ public class CustomerController {
     public ResponseEntity<Customer> createCustomer(@RequestBody Customer customerRequest) {
         Customer createdCustomer = customerService.create(customerRequest);
 
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("/{tutorialId}").buildAndExpand(createdCustomer.getId()).toUri();
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().replacePath("/customers")
+                .path("/{customerId}").buildAndExpand(createdCustomer.getId()).toUri();
 
         return ResponseEntity.created(location).body(createdCustomer);
     }
@@ -48,9 +48,9 @@ public class CustomerController {
     @PutMapping(value = "/customers/{customerId}")
     public ResponseEntity<Customer> updateCustomer(@PathVariable("customerId") Long customerId,
                                                    @RequestBody Customer customerRequest) {
-        Customer updatetCustomer = customerService.update(customerId, customerRequest);
+        Customer updatedCustomer = customerService.update(customerId, customerRequest);
 
-        return ResponseEntity.ok(updatetCustomer);
+        return ResponseEntity.ok(updatedCustomer);
     }
 
     @DeleteMapping(value = "/customers/{customerId}")

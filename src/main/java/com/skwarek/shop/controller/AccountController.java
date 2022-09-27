@@ -40,7 +40,7 @@ public class AccountController {
         Account createdAccount = accountService.create(accountRequest);
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("/{tutorialId}").buildAndExpand(createdAccount.getId()).toUri();
+                .path("/{username}").buildAndExpand(createdAccount.getUsername()).toUri();
 
         return ResponseEntity.created(location).body(createdAccount);
     }
