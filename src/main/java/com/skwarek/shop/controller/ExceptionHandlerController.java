@@ -1,8 +1,6 @@
 package com.skwarek.shop.controller;
 
-import com.skwarek.shop.exception.AccountNotFoundException;
-import com.skwarek.shop.exception.AddressNotFoundException;
-import com.skwarek.shop.exception.CustomerNotFoundException;
+import com.skwarek.shop.exception.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -32,6 +30,22 @@ public class ExceptionHandlerController {
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
     public ResponseEntity<String> addressNotFound() {
         String error = "This address doesn't exist.";
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
+
+    @ExceptionHandler(CategoryNotFoundException.class)
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    public ResponseEntity<String> categoryNotFound() {
+        String error = "This category doesn't exist.";
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
+
+    @ExceptionHandler(CompanyNotFoundException.class)
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    public ResponseEntity<String> companyNotFound() {
+        String error = "This company doesn't exist.";
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }

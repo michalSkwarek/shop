@@ -67,19 +67,37 @@ POST    /addresses/create
 PUT     /addresses/{id}
 DELETE  /addresses/{id} //todo - existing address in customer and shipment
 
+{
+    "name": "newName",
+    "description": "newDescription"
+}
+{
+    "name": "updatedName",
+    "description": "updatedDescription"
+}
 Category
 GET     /categories
 GET     /categories/{id}
 POST    /categories/create
 PUT     /categories/{id}
-DELETE  /categories/{id}
+DELETE  /categories/{id} //todo
 
+{
+    "name": "newName",
+    "website": "newWebsite",
+    "phoneNumber": "newPhoneNumber"
+}
+{
+    "name": "updatedName",
+    "website": "updatedWebsite",
+    "phoneNumber": "updatedPhoneNumber"
+}
 Company
 GET     /companies
 GET     /companies/{id}
 POST    /companies/create
 PUT     /companies/{id}
-DELETE  /companies/{id}
+DELETE  /companies/{id} //todo
 
 UploadFile
 GET     /companyImages/{companyId}
