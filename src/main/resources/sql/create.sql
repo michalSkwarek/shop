@@ -22,23 +22,23 @@ INSERT INTO category (id, name, description) VALUES (2, 'Tablet', 'Tablet simple
 INSERT INTO category (id, name, description) VALUES (3, 'Notebook', 'Notebook simple description');
 
 -- add few logos
-INSERT INTO upload_file (id, file_name, data) VALUES (1001, 'apple.jpg', null);
-INSERT INTO upload_file (id, file_name, data) VALUES (1002, 'samsung.jpg', null);
-INSERT INTO upload_file (id, file_name, data) VALUES (1003, 'huawei.jpg', null);
+INSERT INTO upload_file (id, file_name, data) VALUES (1, 'apple.jpg', null);
+INSERT INTO upload_file (id, file_name, data) VALUES (2, 'samsung.jpg', null);
+INSERT INTO upload_file (id, file_name, data) VALUES (3, 'huawei.jpg', null);
 
 -- add few companies
-INSERT INTO company (id, name, website, phone_number, logo_id) VALUES (1, 'Apple', 'www.apple.com', '800123456', 1001);
-INSERT INTO company (id, name, website, phone_number, logo_id) VALUES (2, 'Samsung', 'www.samsung.com', '800111222', 1002);
-INSERT INTO company (id, name, website, phone_number, logo_id) VALUES (3, 'Huawei', 'www.huawei.com', '800112233', 1003);
+INSERT INTO company (id, name, website, phone_number, logo_id) VALUES (1, 'Apple', 'www.apple.com', '800123456', 1);
+INSERT INTO company (id, name, website, phone_number, logo_id) VALUES (2, 'Samsung', 'www.samsung.com', '800111222', 2);
+INSERT INTO company (id, name, website, phone_number, logo_id) VALUES (3, 'Huawei', 'www.huawei.com', '800112233', 3);
 
 -- ----------------------------------------------
 -- SMARTPHONE
 -- ----------------------------------------------
 -- add few pictures
-INSERT INTO upload_file (id, file_name, data) VALUES (1, 'product1.jpg', null);
-INSERT INTO upload_file (id, file_name, data) VALUES (2, 'product2.jpg', null);
-INSERT INTO upload_file (id, file_name, data) VALUES (3, 'product3.jpg', null);
-INSERT INTO upload_file (id, file_name, data) VALUES (4, 'product4.jpg', null);
+INSERT INTO upload_file (id, file_name, data) VALUES (1001, 'product1001.jpg', null);
+INSERT INTO upload_file (id, file_name, data) VALUES (1002, 'product1002.jpg', null);
+INSERT INTO upload_file (id, file_name, data) VALUES (1003, 'product1003.jpg', null);
+INSERT INTO upload_file (id, file_name, data) VALUES (1004, 'product1004.jpg', null);
 
 -- add few product specs
 INSERT INTO product_specs (id, name) VALUES (1, 'spec 1');
@@ -53,16 +53,16 @@ INSERT INTO product_details (id, created_at, updated_at, account_id) VALUES (3, 
 INSERT INTO product_details (id, created_at, updated_at, account_id) VALUES (4, STR_TO_DATE('24-03-2007 05:31:55', '%d-%m-%Y %H:%i:%s'), null, 1);
 
 -- add few products
-INSERT INTO product (id, name, description, unit_price, category_id, company_id, picture_id, product_specs_id, product_details_id) VALUES (1, 'iPhone 13 Plus', 'iPhone 13 Plus simple description', 4479.00, 1, 1, 1, 1, 1);
-INSERT INTO product (id, name, description, unit_price, category_id, company_id, picture_id, product_specs_id, product_details_id) VALUES (2, 'iPhone 13', 'iPhone 13 simple description', 3879.00, 1, 1, 2, 2, 2);
-INSERT INTO product (id, name, description, unit_price, category_id, company_id, picture_id, product_specs_id, product_details_id) VALUES (3, 'iPhone 12 SE', 'iPhone 12 SE simple description', 2999.00, 1, 1, 3, 3, 3);
-INSERT INTO product (id, name, description, unit_price, category_id, company_id, picture_id, product_specs_id, product_details_id) VALUES (4, 'Galaxy 10', 'Galaxy 10 simple description', 3349.00, 1, 2, 4, 4, 4);
+INSERT INTO product (id, name, description, unit_price, category_id, company_id, picture_id, product_specs_id, product_details_id) VALUES (1, 'iPhone 13 Plus', 'iPhone 13 Plus simple description', 4479.00, 1, 1, 1001, 1, 1);
+INSERT INTO product (id, name, description, unit_price, category_id, company_id, picture_id, product_specs_id, product_details_id) VALUES (2, 'iPhone 13', 'iPhone 13 simple description', 3879.00, 1, 1, 1002, 2, 2);
+INSERT INTO product (id, name, description, unit_price, category_id, company_id, picture_id, product_specs_id, product_details_id) VALUES (3, 'iPhone 12 SE', 'iPhone 12 SE simple description', 2999.00, 1, 1, 1003, 3, 3);
+INSERT INTO product (id, name, description, unit_price, category_id, company_id, picture_id, product_specs_id, product_details_id) VALUES (4, 'Galaxy 10', 'Galaxy 10 simple description', 3349.00, 1, 2, 1004, 4, 4);
 
 -- ----------------------------------------------
 -- TABLET
 -- ----------------------------------------------
 -- add few pictures
-INSERT INTO upload_file (id, file_name, data) VALUES (5, 'product5.jpg', null);
+INSERT INTO upload_file (id, file_name, data) VALUES (1005, 'product1005.jpg', null);
 
 -- add few specifications
 INSERT INTO product_specs (id) VALUES (5);
@@ -71,7 +71,7 @@ INSERT INTO product_specs (id) VALUES (5);
 INSERT INTO product_details (id, created_at, updated_at, account_id) VALUES (5, STR_TO_DATE('25-03-2007 05:31:55', '%d-%m-%Y %H:%i:%s'), null, 1);
 
 -- add few products
-INSERT INTO product (id, name, description, unit_price, category_id, company_id, picture_id, product_specs_id, product_details_id) VALUES (5, 'iPad 5', 'iPad 5 simple description', 2399.00, 2, 1, 5, 5, 5);
+INSERT INTO product (id, name, description, unit_price, category_id, company_id, picture_id, product_specs_id, product_details_id) VALUES (5, 'iPad 5', 'iPad 5 simple description', 2399.00, 2, 1, 1005, 5, 5);
 
 -- ----------------------------------------------
 -- add few comments

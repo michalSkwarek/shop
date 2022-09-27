@@ -99,9 +99,18 @@ POST    /companies/create
 PUT     /companies/{id}
 DELETE  /companies/{id} //todo
 
+{
+    "fileName": "newFileName.jpg"
+}
+{
+    "fileName": "updatedFileName.jpg"
+}
 UploadFile
-GET     /companyImages/{companyId}
-GET     /productImages/{productId}
+GET     /images
+GET     /images/{id}
+POST    /images/create
+PUT     /images/{id}
+DELETE  /images/{id} //todo
 
 Product
 GET     /products
