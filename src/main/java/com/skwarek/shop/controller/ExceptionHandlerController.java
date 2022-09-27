@@ -1,6 +1,7 @@
 package com.skwarek.shop.controller;
 
 import com.skwarek.shop.exception.AccountNotFoundException;
+import com.skwarek.shop.exception.AddressNotFoundException;
 import com.skwarek.shop.exception.CustomerNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,14 @@ public class ExceptionHandlerController {
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
     public ResponseEntity<String> customerNotFound() {
         String error = "This customer doesn't exist.";
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
+
+    @ExceptionHandler(AddressNotFoundException.class)
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    public ResponseEntity<String> addressNotFound() {
+        String error = "This address doesn't exist.";
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }

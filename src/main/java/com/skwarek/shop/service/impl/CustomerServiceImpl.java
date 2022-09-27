@@ -30,7 +30,6 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Customer create(Customer customerRequest) {
         Customer newCustomer = new Customer();
-
         newCustomer.setFirstName(customerRequest.getFirstName());
         newCustomer.setLastName(customerRequest.getLastName());
         newCustomer.setBirthDate(customerRequest.getBirthDate());

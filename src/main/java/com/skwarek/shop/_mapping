@@ -42,7 +42,7 @@ GET     /customers
 GET     /customers/{id}
 POST    /customers/create
 PUT     /customers/{id}
-DELETE  /customers/{id} //todo - existing customer in orders
+DELETE  /customers/{id} //todo - existing customer in order
 
 {
     "streetName": "newStreetName",
@@ -65,7 +65,7 @@ GET     /addresses
 GET     /addresses/{id}
 POST    /addresses/create
 PUT     /addresses/{id}
-DELETE  /addresses/{id}
+DELETE  /addresses/{id} //todo - existing address in customer and shipment
 
 Category
 GET     /categories
