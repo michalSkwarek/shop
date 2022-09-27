@@ -8,15 +8,14 @@ GET     /accessDenied
 
 Account
 {
-    "username": "new account username",
-    "password": "new account password",
-    "email": "new account email"
+    "username": "newUsername",
+    "password": "newPassword",
+    "email": "newEmail@gmail.com"
 }
 {
-    "username": "updated",
-    "password": "updated account password",
-    "email": "updated account email",
-    "createdAt": "2009-06-05 11:44:07",
+    "username": "updatedUsername",
+    "password": "updatedPassword",
+    "email": "updatedEmail@gmail.com",
     "enabled": true,
     "role": "MODERATOR"
 }
@@ -26,13 +25,41 @@ POST    /accounts/create
 PUT     /accounts/{username}
 DELETE  /accounts/{username}
 
+{
+    "firstName": "newFirstName",
+    "lastName": "newLastName",
+    "birthDate": "2000-01-01",
+    "phoneNumber": "111222333"
+}
+{
+    "firstName": "updatedFirstName",
+    "lastName": "updatedLastName",
+    "birthDate": "2001-01-01",
+    "phoneNumber": "222333444"
+}
 Customer
 GET     /customers
 GET     /customers/{id}
 POST    /customers/create
 PUT     /customers/{id}
-DELETE  /customers/{id}
+DELETE  /customers/{id} //todo - existing customer in orders
 
+{
+    "streetName": "newStreetName",
+    "streetNumber": "newStreetNumber",
+    "doorNumber": "newDoorNumber",
+    "postalCode": "newPostalCode",
+    "city": "newCity",
+    "country": "POLAND"
+}
+{
+    "streetName": "updatedStreetName",
+    "streetNumber": "updatedStreetNumber",
+    "doorNumber": "updatedDoorNumber",
+    "postalCode": "updatedPostalCode",
+    "city": "updatedCity",
+    "country": "UKRAINE"
+}
 Address
 GET     /addresses
 GET     /addresses/{id}
