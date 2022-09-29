@@ -112,6 +112,16 @@ POST    /images/create
 PUT     /images/{id}
 DELETE  /images/{id} //todo
 
+{
+    "name": "newName",
+    "description": "newDescription",
+    "unitPrice": 1000.00
+}
+{
+    "name": "updatedName",
+    "description": "updatedDescription",
+    "unitPrice": 1111.11
+}
 Product
 GET     /products
 GET     /products/{id}
@@ -119,11 +129,11 @@ GET     /products?category=[keyword]
 GET     /products?company=[keyword]
 POST    /products/create
 PUT     /products/{id}
-DELETE  /products/{id}
+DELETE  /products/{id} //todo
 GET     /products/{id}/specs
 POST    /products/{id}/specs
 PUT     /products/{id}/specs
-DELETE  /products/{id}/specs
+DELETE  /products/{id}/specs //todo
 
 Comment
 GET     /accounts/{username}/comments
