@@ -28,7 +28,7 @@ public class Account {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "email", unique = true)
+    @Column(name = "email")
     private String email;
 
     @Column(name = "created_at")

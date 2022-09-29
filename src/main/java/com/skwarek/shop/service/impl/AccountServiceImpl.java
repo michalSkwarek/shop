@@ -1,5 +1,6 @@
 package com.skwarek.shop.service.impl;
 
+import com.skwarek.shop.exception.AccountDuplicateException;
 import com.skwarek.shop.exception.AccountNotFoundException;
 import com.skwarek.shop.model.user.Account;
 import com.skwarek.shop.model.user.Role;
@@ -31,16 +32,22 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Account create(Account accountRequest) {
-        Account newAccount = new Account();
-        newAccount.setUsername(accountRequest.getUsername());
-        newAccount.setPassword(accountRequest.getPassword());
-        newAccount.setEmail(accountRequest.getEmail());
-        newAccount.setCreatedAt(LocalDateTime.now());
-        newAccount.setUpdatedAt(null);
-        newAccount.setEnabled(true);
-        newAccount.setRole(Role.USER);
+        boolean isAccountExists = accountRepository.existsByUsername(accountRequest.getUsername());
 
-        return accountRepository.save(newAccount);
+        if (isAccountExists) {
+            Account newAccount = new Account();
+            newAccount.setUsername(accountRequest.getUsername());
+            newAccount.setPassword(accountRequest.getPassword());
+            newAccount.setEmail(accountRequest.getEmail());
+            newAccount.setCreatedAt(LocalDateTime.now());
+            newAccount.setUpdatedAt(null);
+            newAccount.setEnabled(true);
+            newAccount.setRole(Role.USER);
+
+            return accountRepository.save(newAccount);
+        } else {
+            throw new AccountDuplicateException("Duplicate account with username: " + accountRequest.getUsername());
+        }
     }
 
     @Override

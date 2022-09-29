@@ -1,5 +1,6 @@
 package com.skwarek.shop.service.impl;
 
+import com.skwarek.shop.exception.CompanyDuplicateException;
 import com.skwarek.shop.exception.CompanyNotFoundException;
 import com.skwarek.shop.model.product.Company;
 import com.skwarek.shop.repository.CompanyRepository;
@@ -29,13 +30,19 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public Company create(Company companyRequest) {
-        Company newCompany = new Company();
-        newCompany.setName(companyRequest.getName());
-        newCompany.setWebsite(companyRequest.getWebsite());
-        newCompany.setPhoneNumber(companyRequest.getPhoneNumber());
-        newCompany.setLogo(null);
+        boolean isCompanyExists = companyRepository.existsByName(companyRequest.getName());
 
-        return companyRepository.save(newCompany);
+        if (isCompanyExists) {
+            Company newCompany = new Company();
+            newCompany.setName(companyRequest.getName());
+            newCompany.setWebsite(companyRequest.getWebsite());
+            newCompany.setPhoneNumber(companyRequest.getPhoneNumber());
+            newCompany.setLogo(null);
+
+            return companyRepository.save(newCompany);
+        } else {
+            throw new CompanyDuplicateException("Duplicate company with name: " + companyRequest.getName());
+        }
     }
 
     @Override
