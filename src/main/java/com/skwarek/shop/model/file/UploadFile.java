@@ -22,7 +22,7 @@ public class UploadFile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "file_name")
+    @Column(name = "file_name", unique = true)
     private String fileName;
 
     @Column(name = "data")

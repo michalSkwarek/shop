@@ -26,7 +26,7 @@ public class Shipment {
     @DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
     private LocalDateTime shippingDate;
 
-    @Column(name = "tracking_number")
+    @Column(name = "tracking_number", unique = true)
     private String trackingNumber;
 
     @Column(name = "delivery_date")
