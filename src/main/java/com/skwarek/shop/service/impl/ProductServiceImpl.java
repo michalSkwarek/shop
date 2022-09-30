@@ -1,11 +1,10 @@
 package com.skwarek.shop.service.impl;
 
-import com.skwarek.shop.exception.CategoryNotFoundException;
-import com.skwarek.shop.exception.CompanyNotFoundException;
-import com.skwarek.shop.exception.ProductNotFoundException;
+import com.skwarek.shop.exception.*;
 import com.skwarek.shop.model.product.Category;
 import com.skwarek.shop.model.product.Company;
 import com.skwarek.shop.model.product.Product;
+import com.skwarek.shop.model.product.specs.ProductSpecs;
 import com.skwarek.shop.repository.CategoryRepository;
 import com.skwarek.shop.repository.CompanyRepository;
 import com.skwarek.shop.repository.ProductRepository;
@@ -96,6 +95,80 @@ public class ProductServiceImpl implements ProductService {
 
         if (isProductExists) {
             productRepository.deleteById(productId);
+        } else {
+            throw new ProductNotFoundException("Not found product with id: " + productId);
+        }
+    }
+
+    @Override
+    public ProductSpecs findSpecsByProductId(Long productId) {
+        Optional<Product> productDb = productRepository.findById(productId);
+
+        if (productDb.isPresent()) {
+            ProductSpecs productSpecs = productDb.get().getProductSpecs();
+
+            if (productSpecs != null) {
+                return productSpecs;
+            } else {
+                throw new ProductSpecsNotFoundException("Not found product specs for product with id: " + productId);
+            }
+        } else {
+            throw new ProductNotFoundException("Not found product with id: " + productId);
+        }
+    }
+
+    @Override
+    public ProductSpecs createSpecs(Long productId, ProductSpecs productSpecsRequest) {
+        Optional<Product> productDb = productRepository.findById(productId);
+
+        if (productDb.isPresent()) {
+            Product oldProduct = productDb.get();
+
+            if (oldProduct.getProductSpecs() == null) {
+                ProductSpecs newProductSpecs = new ProductSpecs();
+                newProductSpecs.setName(productSpecsRequest.getName());
+
+                oldProduct.setProductSpecs(newProductSpecs);
+
+                return productRepository.save(oldProduct).getProductSpecs();
+            } else {
+                throw new ProductSpecsDuplicateException("Duplicate product specs for product with id: " + productId);
+            }
+        } else {
+            throw new ProductNotFoundException("Not found product with id: " + productId);
+        }
+    }
+
+    @Override
+    public ProductSpecs updateSpecs(Long productId, ProductSpecs productSpecsRequest) {
+        Optional<Product> productDb = productRepository.findById(productId);
+
+        if (productDb.isPresent()) {
+            Product oldProduct = productDb.get();
+            ProductSpecs oldProductSpecs = oldProduct.getProductSpecs();
+            oldProductSpecs.setName(productSpecsRequest.getName());
+
+            return productRepository.save(oldProduct).getProductSpecs();
+        } else {
+            throw new ProductNotFoundException("Not found product with id: " + productId);
+        }
+    }
+
+    @Override
+    public void deleteSpecsByProductId(Long productId) {
+        Optional<Product> productDb = productRepository.findById(productId);
+
+        if (productDb.isPresent()) {
+            Product oldProduct = productDb.get();
+            ProductSpecs productSpecs = productDb.get().getProductSpecs();
+
+            if (productSpecs != null) {
+                oldProduct.setProductSpecs(null);
+
+                productRepository.save(oldProduct);
+            } else {
+                throw new ProductSpecsNotFoundException("Not found product specs for product with id: " + productId);
+            }
         } else {
             throw new ProductNotFoundException("Not found product with id: " + productId);
         }

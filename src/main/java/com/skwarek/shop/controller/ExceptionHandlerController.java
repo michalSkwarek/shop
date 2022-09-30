@@ -114,4 +114,20 @@ public class ExceptionHandlerController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
 
+    @ExceptionHandler(ProductSpecsNotFoundException.class)
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    public ResponseEntity<String> productSpecsNotFound() {
+        String error = "This product specs doesn't exist.";
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
+
+    @ExceptionHandler(ProductSpecsDuplicateException.class)
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    public ResponseEntity<String> productSpecsDuplicate() {
+        String error = "This product specs already exists.";
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
+
 }

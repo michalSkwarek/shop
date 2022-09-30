@@ -130,8 +130,14 @@ GET     /products?company=[keyword]
 POST    /products/create
 PUT     /products/{id}
 DELETE  /products/{id} //todo
+{
+    "name": "newName"
+}
+{
+    "name": "updatedName"
+}
 GET     /products/{id}/specs
-POST    /products/{id}/specs
+POST    /products/{id}/specs/create
 PUT     /products/{id}/specs
 DELETE  /products/{id}/specs //todo
 

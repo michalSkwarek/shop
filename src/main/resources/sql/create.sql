@@ -64,14 +64,11 @@ INSERT INTO product (id, name, description, unit_price, category_id, company_id,
 -- add few pictures
 INSERT INTO upload_file (id, file_name, data) VALUES (1005, 'product1005.jpg', null);
 
--- add few specifications
-INSERT INTO product_specs (id) VALUES (5);
-
 -- add few product details
 INSERT INTO product_details (id, created_at, updated_at, account_id) VALUES (5, STR_TO_DATE('25-03-2007 05:31:55', '%d-%m-%Y %H:%i:%s'), null, 1);
 
 -- add few products
-INSERT INTO product (id, name, description, unit_price, category_id, company_id, picture_id, product_specs_id, product_details_id) VALUES (5, 'iPad 5', 'iPad 5 simple description', 2399.00, 2, 1, 1005, 5, 5);
+INSERT INTO product (id, name, description, unit_price, category_id, company_id, picture_id, product_specs_id, product_details_id) VALUES (5, 'iPad 5', 'iPad 5 simple description', 2399.00, 2, 1, 1005, null, 5);
 
 -- ----------------------------------------------
 -- add few comments

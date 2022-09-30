@@ -1,6 +1,7 @@
 package com.skwarek.shop.controller;
 
 import com.skwarek.shop.model.product.Product;
+import com.skwarek.shop.model.product.specs.ProductSpecs;
 import com.skwarek.shop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -69,7 +70,7 @@ public class ProductController {
 
     @PutMapping(value = "/products/{productId}")
     public ResponseEntity<Product> updateProduct(@PathVariable("productId") Long productId,
-                                                   @RequestBody Product productRequest) {
+                                                 @RequestBody Product productRequest) {
         Product updatedProduct = productService.update(productId, productRequest);
 
         return ResponseEntity.ok(updatedProduct);
@@ -78,6 +79,39 @@ public class ProductController {
     @DeleteMapping(value = "/products/{productId}")
     public ResponseEntity<HttpStatus> deleteProductById(@PathVariable("productId") Long productId) {
         productService.deleteById(productId);
+
+        return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping(value = "/products/{productId}/specs")
+    public ResponseEntity<ProductSpecs> getProductSpecsByProductId(@PathVariable("productId") Long productId) {
+        ProductSpecs productSpecs = productService.findSpecsByProductId(productId);
+
+        return ResponseEntity.ok(productSpecs);
+    }
+
+    @PostMapping(value = "/products/{productId}/specs/create")
+    public ResponseEntity<ProductSpecs> createProductSpecs(@PathVariable("productId") Long productId,
+                                                           @RequestBody ProductSpecs productSpecsRequest) {
+        ProductSpecs createdProductSpecs = productService.createSpecs(productId, productSpecsRequest);
+
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().replacePath("/products")
+                .path("/{productId}/specs").buildAndExpand(createdProductSpecs.getId()).toUri();
+
+        return ResponseEntity.created(location).body(createdProductSpecs);
+    }
+
+    @PutMapping(value = "/products/{productId}/specs")
+    public ResponseEntity<ProductSpecs> updateProductSpecs(@PathVariable("productId") Long productId,
+                                                           @RequestBody ProductSpecs productSpecsRequest) {
+        ProductSpecs updatedProductSpecs = productService.updateSpecs(productId, productSpecsRequest);
+
+        return ResponseEntity.ok(updatedProductSpecs);
+    }
+
+    @DeleteMapping(value = "/products/{productId}/specs")
+    public ResponseEntity<HttpStatus> deleteProductSpecsByProductId(@PathVariable("productId") Long productId) {
+        productService.deleteSpecsByProductId(productId);
 
         return ResponseEntity.noContent().build();
     }
