@@ -141,13 +141,24 @@ POST    /products/{id}/specs/create
 PUT     /products/{id}/specs
 DELETE  /products/{id}/specs //todo
 
+{
+    "rating": "THREE",
+    "content": "new content",
+    "createdBy": {
+    	"username": "existingUsername"
+    }
+}
+{
+    "rating": "FOUR",
+    "content": "updated content"
+}
 Comment
-GET     /accounts/{username}/comments
-GET	    /products/{id}/comments
 GET	    /comments/{id}
 POST	/products/{id}/comments
 PUT	    /comments/{id}
 DELETE	/comments/{id}
+GET	    /products/{id}/comments
+GET     /accounts/{username}/comments
 
 Tag
 GET	    /tags

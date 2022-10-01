@@ -74,8 +74,8 @@ INSERT INTO product (id, name, description, unit_price, category_id, company_id,
 -- add few comments
 INSERT INTO comment (id, rating, created_at, updated_at, content, number_of_likes, number_of_dislikes, product_id, account_id) VALUES (1,'FOUR', STR_TO_DATE('05-06-2009 11:44:07', '%d-%m-%Y %H:%i:%s'), STR_TO_DATE('06-06-2009 12:44:07', '%d-%m-%Y %H:%i:%s'), 'Comment 1 to Apple iPhone 13 Plus', 5, 2, 1, 1001);
 INSERT INTO comment (id, rating, created_at, updated_at, content, number_of_likes, number_of_dislikes, product_id, account_id) VALUES (2,'FIVE', STR_TO_DATE('06-06-2009 11:44:07', '%d-%m-%Y %H:%i:%s'), null, 'Comment 2 to Apple iPhone 13 Plus', 2, 1, 1, 1002);
-INSERT INTO comment (id, rating, created_at, updated_at, content, number_of_likes, number_of_dislikes, product_id, account_id) VALUES (4,'TWO', STR_TO_DATE('07-06-2009 11:44:07', '%d-%m-%Y %H:%i:%s'), null, 'Comment 1 to Apple iPhone 13', 0, 0, 2, 1001);
-INSERT INTO comment (id, rating, created_at, updated_at, content, number_of_likes, number_of_dislikes, product_id, account_id) VALUES (5,'THREE', STR_TO_DATE('08-06-2009 11:44:07', '%d-%m-%Y %H:%i:%s'), null, 'Comment 2 to Apple iPhone 13', 1, 5, 2, 1002);
+INSERT INTO comment (id, rating, created_at, updated_at, content, number_of_likes, number_of_dislikes, product_id, account_id) VALUES (3,'TWO', STR_TO_DATE('07-06-2009 11:44:07', '%d-%m-%Y %H:%i:%s'), null, 'Comment 1 to Apple iPhone 13', 0, 0, 2, 1001);
+INSERT INTO comment (id, rating, created_at, updated_at, content, number_of_likes, number_of_dislikes, product_id, account_id) VALUES (4,'THREE', STR_TO_DATE('08-06-2009 11:44:07', '%d-%m-%Y %H:%i:%s'), null, 'Comment 2 to Apple iPhone 13', 1, 5, 2, 1002);
 
 -- ----------------------------------------------
 -- add few tags
