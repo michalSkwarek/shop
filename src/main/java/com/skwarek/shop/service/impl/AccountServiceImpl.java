@@ -26,7 +26,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Account findByUsername(String username) {
-        return accountRepository.findByUsername(username)
+        return accountRepository.findOptionalByUsername(username)
                 .orElseThrow(() -> new AccountNotFoundException("Not found account with username: " + username));
     }
 
@@ -52,7 +52,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Account update(String username, Account accountRequest) {
-        Optional<Account> accountDb = accountRepository.findByUsername(username);
+        Optional<Account> accountDb = accountRepository.findOptionalByUsername(username);
 
         if (accountDb.isPresent()) {
             Account oldAccount = accountDb.get();

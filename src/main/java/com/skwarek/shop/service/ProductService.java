@@ -29,4 +29,6 @@ public interface ProductService {
 
     void deleteSpecsByProductId(Long productId);
 
+    List<Product> findProductsByTagsId(Long tagId);
+
 }

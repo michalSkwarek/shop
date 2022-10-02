@@ -98,10 +98,10 @@ public class ExceptionHandlerController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
 
-    @ExceptionHandler(TagDuplicateException.class)
+    @ExceptionHandler(TagNotFoundException.class)
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
-    public ResponseEntity<String> tagDuplicate() {
-        String error = "This tag already exists.";
+    public ResponseEntity<String> tagNotFound() {
+        String error = "This tag doesn't exist.";
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }

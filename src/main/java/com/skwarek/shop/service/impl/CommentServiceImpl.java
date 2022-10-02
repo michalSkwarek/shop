@@ -39,7 +39,7 @@ public class CommentServiceImpl implements CommentService {
 
         if (productDb.isPresent()) {
             String username = commentRequest.getCreatedBy().getUsername();
-            Optional<Account> accountDb = accountRepository.findByUsername(username);
+            Optional<Account> accountDb = accountRepository.findOptionalByUsername(username);
 
             if (accountDb.isPresent()) {
                 Comment newComment = new Comment();

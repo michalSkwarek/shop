@@ -8,6 +8,7 @@ import com.skwarek.shop.model.product.specs.ProductSpecs;
 import com.skwarek.shop.repository.CategoryRepository;
 import com.skwarek.shop.repository.CompanyRepository;
 import com.skwarek.shop.repository.ProductRepository;
+import com.skwarek.shop.repository.TagRepository;
 import com.skwarek.shop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,8 @@ public class ProductServiceImpl implements ProductService {
     private CategoryRepository categoryRepository;
     @Autowired
     private CompanyRepository companyRepository;
+    @Autowired
+    private TagRepository tagRepository;
 
     @Override
     public List<Product> findAll() {
@@ -38,7 +41,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> findByCategory(String name) {
-        Optional<Category> categoryDb = categoryRepository.findByName(name);
+        Optional<Category> categoryDb = categoryRepository.findOptionalByName(name);
 
         if (categoryDb.isPresent()) {
             return productRepository.findByCategoryId(categoryDb.get().getId());
@@ -49,7 +52,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> findByCompany(String name) {
-        Optional<Company> companyDb = companyRepository.findByName(name);
+        Optional<Company> companyDb = companyRepository.findOptionalByName(name);
 
         if (companyDb.isPresent()) {
             return productRepository.findByCompanyId(companyDb.get().getId());
@@ -171,6 +174,17 @@ public class ProductServiceImpl implements ProductService {
             }
         } else {
             throw new ProductNotFoundException("Not found product with id: " + productId);
+        }
+    }
+
+    @Override
+    public List<Product> findProductsByTagsId(Long tagId) {
+        boolean isTagExists = tagRepository.existsById(tagId);
+
+        if (isTagExists) {
+            return productRepository.findProductsByTagsId(tagId);
+        } else {
+            throw new TagNotFoundException("Not found tag with id: " + tagId);
         }
     }
 

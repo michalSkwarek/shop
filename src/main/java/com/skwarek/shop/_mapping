@@ -160,6 +160,12 @@ DELETE	/comments/{id}
 GET	    /products/{id}/comments
 GET     /accounts/{username}/comments
 
+{
+    "name": "newName"
+}
+{
+    "name": "updatedName"
+}
 Tag
 GET	    /tags
 GET	    /tags/{id}
@@ -169,7 +175,6 @@ DELETE	/tags/{id}
 GET	    /products/{id}/tags
 GET	    /tags/{id}/products
 DELETE	/products/{id}/tags/{id}
-DELETE	/tags/{id}/products/{id}
 
 Order
 GET     /accounts/{username}/orders
