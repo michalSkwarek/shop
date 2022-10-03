@@ -174,18 +174,24 @@ PUT	    /tags/{id}
 DELETE	/tags/{id}
 GET	    /products/{id}/tags
 GET	    /tags/{id}/products
-DELETE	/products/{id}/tags/{id}
+DELETE	/products/{id}/tags/{id} //todo
 
+{
+    "amount": "2000.00"
+}
+{
+    "amount": "2222.22"
+}
 Order
-GET     /accounts/{username}/orders
+GET     /customers/{customerId}/orders
 GET     /orders/{id}
-POST    /accounts/{username}/orders
+POST    /customers/{customerId}/orders
 PUT	    /orders/{id}
-DELETE	/orders/{id}
+DELETE	/orders/{id} //todo
 
 Shipment
 GET     /shipments
 GET     /shipments/{id}
 POST    /shipments/create
 PUT     /shipments/{id}
-DELETE  /shipments/{id}
+DELETE  /shipments/{id} //todo
