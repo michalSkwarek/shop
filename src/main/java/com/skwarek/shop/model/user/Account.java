@@ -33,9 +33,6 @@ public class Account {
     @DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
     private LocalDateTime updatedAt;
 
-    @Column(name = "enabled")
-    private Boolean enabled;
-
     @Column(name = "role", columnDefinition = "ENUM('ADMIN', 'MODERATOR', 'USER')")
     @Enumerated(EnumType.STRING)
     private Role role;
