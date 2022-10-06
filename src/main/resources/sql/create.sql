@@ -101,6 +101,7 @@ INSERT INTO stock (id, quantity, product_id) VALUES (5, 0, 5);
 INSERT INTO orders (id, created_at, amount, customer_id) VALUES (1, STR_TO_DATE('19-03-2016 18:22:33', '%d-%m-%Y %H:%i:%s'), 25993.00, 1);
 INSERT INTO orders (id, created_at, amount, customer_id) VALUES (2, STR_TO_DATE('01-04-2016 17:20:03', '%d-%m-%Y %H:%i:%s'), 57027.00, 1);
 INSERT INTO orders (id, created_at, amount, customer_id) VALUES (3, STR_TO_DATE('11-05-2016 08:47:22', '%d-%m-%Y %H:%i:%s'), 4479.00, 2);
+INSERT INTO orders (id, created_at, amount, customer_id) VALUES (4, STR_TO_DATE('21-05-2016 08:47:22', '%d-%m-%Y %H:%i:%s'), 4798.00, 2);
 
 -- add few items
 INSERT INTO item (id, quantity, unit_price, amount, product_id, order_id) VALUES (1, 1, 4479.00, 4479.00, 1, 1);
@@ -109,10 +110,11 @@ INSERT INTO item (id, quantity, unit_price, amount, product_id, order_id) VALUES
 INSERT INTO item (id, quantity, unit_price, amount, product_id, order_id) VALUES (4, 11, 4479.00, 49269.00, 1, 2);
 INSERT INTO item (id, quantity, unit_price, amount, product_id, order_id) VALUES (5, 1, 3879.00, 7758.00, 2, 2);
 INSERT INTO item (id, quantity, unit_price, amount, product_id, order_id) VALUES (6, 1, 4479.00, 4479.00, 1, 3);
+INSERT INTO item (id, quantity, unit_price, amount, product_id, order_id) VALUES (7, 2, 2399.00, 4798.00, 5, 4);
 
 -- add few shipments
-INSERT INTO shipment (id, shipping_date, tracking_number, delivery_date, shipment_status, order_id, shipping_address_id) VALUES (1, STR_TO_DATE('21-03-2016 18:22:33', '%d-%m-%Y %H:%i:%s'), 'TN112233NR1', STR_TO_DATE('21-03-2016 18:22:33', '%d-%m-%Y %H:%i:%s'), 'DELIVERED', 1, 1);
-INSERT INTO shipment (id, shipping_date, tracking_number, delivery_date, shipment_status, order_id, shipping_address_id) VALUES (2, STR_TO_DATE('22-03-2016 19:22:33', '%d-%m-%Y %H:%i:%s'), 'TN112233NR2', STR_TO_DATE('21-03-2016 18:22:33', '%d-%m-%Y %H:%i:%s'), 'DELIVERED', 2, 1);
-INSERT INTO shipment (id, shipping_date, tracking_number, delivery_date, shipment_status, order_id, shipping_address_id) VALUES (3, STR_TO_DATE('23-03-2016 20:22:33', '%d-%m-%Y %H:%i:%s'), 'TN112233NR3', null, 'IN_TRANSIT', 3, 2);
+INSERT INTO shipment (id, shipping_date, tracking_number, delivery_date, shipment_status, order_id, shipping_address_id) VALUES (1, STR_TO_DATE('21-03-2016 18:22:33', '%d-%m-%Y %H:%i:%s'), 'PARCELno1', STR_TO_DATE('21-03-2016 18:22:33', '%d-%m-%Y %H:%i:%s'), 'DELIVERED', 1, 1);
+INSERT INTO shipment (id, shipping_date, tracking_number, delivery_date, shipment_status, order_id, shipping_address_id) VALUES (2, STR_TO_DATE('22-03-2016 19:22:33', '%d-%m-%Y %H:%i:%s'), 'PARCELno2', null, 'IN_TRANSIT', 2, 1);
+INSERT INTO shipment (id, shipping_date, tracking_number, delivery_date, shipment_status, order_id, shipping_address_id) VALUES (3, null, null, null, 'PROCESSING', 3, null);
 
 

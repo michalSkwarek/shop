@@ -45,7 +45,7 @@ public class ExceptionHandlerController {
     @ExceptionHandler(CategoryNotFoundException.class)
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
     public ResponseEntity<String> categoryNotFound() {
-        String error = "This category name doesn't exist.";
+        String error = "This category doesn't exist.";
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
@@ -106,14 +106,6 @@ public class ExceptionHandlerController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
 
-    @ExceptionHandler(ShipmentDuplicateException.class)
-    @ResponseStatus(value = HttpStatus.NOT_FOUND)
-    public ResponseEntity<String> shipmentDuplicate() {
-        String error = "This shipment already exists.";
-
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
-    }
-
     @ExceptionHandler(ProductSpecsNotFoundException.class)
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
     public ResponseEntity<String> productSpecsNotFound() {
@@ -142,6 +134,22 @@ public class ExceptionHandlerController {
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
     public ResponseEntity<String> orderNotFound() {
         String error = "This order doesn't exist.";
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
+
+    @ExceptionHandler(ShipmentNotFoundException.class)
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    public ResponseEntity<String> shipmentNotFound() {
+        String error = "This shipment doesn't exist.";
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
+
+    @ExceptionHandler(ShipmentDuplicateException.class)
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    public ResponseEntity<String> shipmentDuplicate() {
+        String error = "This shipment already exists.";
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }

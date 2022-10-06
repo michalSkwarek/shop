@@ -189,9 +189,26 @@ POST    /customers/{customerId}/orders
 PUT	    /orders/{id}
 DELETE	/orders/{id} //todo
 
+{
+    "streetName": "Tysz",
+    "streetNumber": "28",
+    "doorNumber": "3",
+    "postalCode": "01-182",
+    "city": "Warszawa",
+    "country": "POLAND"
+}
+{
+    "shippingDate": "2021-10-05T23:54:27",
+    "trackingNumber": "updatedPARCELno3",
+    "deliveryDate": "2021-10-05T23:54:52",
+    "shipmentStatus": "IN_TRANSIT"
+}
 Shipment
 GET     /shipments
 GET     /shipments/{id}
-POST    /shipments/create
+POST    /orders/{orderId}/shipments/create
+PUT     /shipments/{id}/address
+PUT     /shipments/{id}/send
+PUT     /shipments/{id}/delivery
 PUT     /shipments/{id}
 DELETE  /shipments/{id} //todo

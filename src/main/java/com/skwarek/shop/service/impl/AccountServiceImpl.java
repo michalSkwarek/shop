@@ -59,7 +59,6 @@ public class AccountServiceImpl implements AccountService {
             oldAccount.setUsername(accountRequest.getUsername());
             oldAccount.setPassword(accountRequest.getPassword());
             oldAccount.setEmail(accountRequest.getEmail());
-            oldAccount.setCreatedAt(accountRequest.getCreatedAt());
             oldAccount.setUpdatedAt(LocalDateTime.now());
             oldAccount.setEnabled(accountRequest.getEnabled());
             oldAccount.setRole(accountRequest.getRole());
