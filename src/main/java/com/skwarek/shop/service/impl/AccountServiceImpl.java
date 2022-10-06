@@ -38,7 +38,6 @@ public class AccountServiceImpl implements AccountService {
             Account newAccount = new Account();
             newAccount.setEmail(accountRequest.getEmail());
             newAccount.setPassword(accountRequest.getPassword());
-            newAccount.setEmail(accountRequest.getEmail());
             newAccount.setCreatedAt(LocalDateTime.now());
             newAccount.setUpdatedAt(null);
             newAccount.setRole(Role.USER);
@@ -57,7 +56,6 @@ public class AccountServiceImpl implements AccountService {
             Account oldAccount = accountDb.get();
             oldAccount.setEmail(accountRequest.getEmail());
             oldAccount.setPassword(accountRequest.getPassword());
-            oldAccount.setEmail(accountRequest.getEmail());
             oldAccount.setUpdatedAt(LocalDateTime.now());
             oldAccount.setRole(accountRequest.getRole());
 
