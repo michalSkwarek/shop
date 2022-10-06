@@ -8,22 +8,19 @@ GET     /accessDenied
 
 Account
 {
-    "username": "newUsername",
-    "password": "newPassword",
-    "email": "newEmail@gmail.com"
+    "email": "newEmail@gmail.com",
+    "password": "newPassword"
 }
 {
-    "username": "updatedUsername",
-    "password": "updatedPassword",
     "email": "updatedEmail@gmail.com",
-    "enabled": true,
+    "password": "updatedPassword",
     "role": "MODERATOR"
 }
 GET     /accounts
-GET     /accounts/{username}
+GET     /accounts/{email}
 POST    /accounts/create
-PUT     /accounts/{username}
-DELETE  /accounts/{username}
+PUT     /accounts/{email}
+DELETE  /accounts/{email}
 
 {
     "firstName": "newFirstName",
@@ -145,7 +142,7 @@ DELETE  /products/{id}/specs //todo
     "rating": "THREE",
     "content": "new content",
     "createdBy": {
-    	"username": "existingUsername"
+    	"email": "existingEmail"
     }
 }
 {
@@ -158,7 +155,7 @@ POST	/products/{id}/comments
 PUT	    /comments/{id}
 DELETE	/comments/{id}
 GET	    /products/{id}/comments
-GET     /accounts/{username}/comments
+GET     /accounts/{email}/comments
 
 {
     "name": "newName"
