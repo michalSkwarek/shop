@@ -2,24 +2,33 @@
 Welcome
 GET     / /welcome
 
-Login
-GET     /login
-GET     /accessDenied
-
-Account
+{
+    "email": "newEmail@gmail.com",
+    "password": "newPassword",
+    "newsletter": false
+}
 {
     "email": "newEmail@gmail.com",
     "password": "newPassword"
 }
+Auth
+POST    /register
+POST    /login
+POST    /logout
+
 {
     "email": "updatedEmail@gmail.com",
     "password": "updatedPassword",
+    "newsletter": true
+}
+{
     "role": "MODERATOR"
 }
+Account
 GET     /accounts
 GET     /accounts/{email}
-POST    /accounts/create
 PUT     /accounts/{email}
+PUT     /accounts/{email}/permission
 DELETE  /accounts/{email}
 
 {

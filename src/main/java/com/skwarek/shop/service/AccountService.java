@@ -12,7 +12,13 @@ public interface AccountService {
 
     Account create(Account accountRequest);
 
+    void login(Account accountRequest);
+
+    void logout();
+
     Account update(String email, Account accountRequest);
+
+    Account changeRole(String email, Account accountRequest);
 
     void deleteByEmail(String email);
 

@@ -6,10 +6,10 @@ INSERT INTO address (id, street_name, street_number, door_number, postal_code, c
 
 -- ----------------------------------------------
 -- add few accounts
-INSERT INTO account (id, email, password, created_at, updated_at, role) VALUES (1, 'a1@gmail.com', '111', STR_TO_DATE('21-03-2007 05:31:55', '%d-%m-%Y %H:%i:%s'), null, 'ADMIN');
-INSERT INTO account (id, email, password, created_at, updated_at, role) VALUES (101, 'b2@gmail.com', '222', STR_TO_DATE('14-11-2008 20:22:31', '%d-%m-%Y %H:%i:%s'), null, 'MODERATOR');
-INSERT INTO account (id, email, password, created_at, updated_at, role) VALUES (1001, 'c3@gmail.com', '333', STR_TO_DATE('05-06-2009 11:44:07', '%d-%m-%Y %H:%i:%s'), STR_TO_DATE('06-06-2009 12:44:07', '%d-%m-%Y %H:%i:%s'), 'USER');
-INSERT INTO account (id, email, password, created_at, updated_at, role) VALUES (1002, 'd4@gmail.com', '444', STR_TO_DATE('05-06-2009 11:44:07', '%d-%m-%Y %H:%i:%s'), null, 'USER');
+INSERT INTO account (id, email, password, newsletter, created_at, updated_at, role) VALUES (1, 'a1@gmail.com', '111', true, STR_TO_DATE('21-03-2007 05:31:55', '%d-%m-%Y %H:%i:%s'), null, 'ADMIN');
+INSERT INTO account (id, email, password, newsletter, created_at, updated_at, role) VALUES (101, 'b2@gmail.com', '222', false, STR_TO_DATE('14-11-2008 20:22:31', '%d-%m-%Y %H:%i:%s'), null, 'MODERATOR');
+INSERT INTO account (id, email, password, newsletter, created_at, updated_at, role) VALUES (1001, 'c3@gmail.com', '333', true, STR_TO_DATE('05-06-2009 11:44:07', '%d-%m-%Y %H:%i:%s'), STR_TO_DATE('06-06-2009 12:44:07', '%d-%m-%Y %H:%i:%s'), 'USER');
+INSERT INTO account (id, email, password, newsletter, created_at, updated_at, role) VALUES (1002, 'd4@gmail.com', '444', false, STR_TO_DATE('05-06-2009 11:44:07', '%d-%m-%Y %H:%i:%s'), null, 'USER');
 
 -- add few customers
 INSERT INTO customer (id, first_name, last_name, birth_date, phone_number, account_id, billing_address_id) VALUES (1, 'Michal', 'Abacki', STR_TO_DATE('21-03-1994', '%d-%m-%Y'), '111222333', 1001, 1);

@@ -1,7 +1,8 @@
 package com.skwarek.shop.service.impl;
 
-import com.skwarek.shop.exception.AccountDuplicateException;
+import com.skwarek.shop.exception.AccountExistingException;
 import com.skwarek.shop.exception.AccountNotFoundException;
+import com.skwarek.shop.exception.AccountWrongPasswordException;
 import com.skwarek.shop.model.user.Account;
 import com.skwarek.shop.model.user.Role;
 import com.skwarek.shop.repository.AccountRepository;
@@ -34,18 +35,42 @@ public class AccountServiceImpl implements AccountService {
     public Account create(Account accountRequest) {
         boolean isAccountExists = accountRepository.existsByEmail(accountRequest.getEmail());
 
-        if (isAccountExists) {
+        if (!isAccountExists) {
             Account newAccount = new Account();
             newAccount.setEmail(accountRequest.getEmail());
             newAccount.setPassword(accountRequest.getPassword());
+            newAccount.setNewsletter(accountRequest.getNewsletter());
             newAccount.setCreatedAt(LocalDateTime.now());
             newAccount.setUpdatedAt(null);
             newAccount.setRole(Role.USER);
 
             return accountRepository.save(newAccount);
         } else {
-            throw new AccountDuplicateException("Duplicate account with email: " + accountRequest.getEmail());
+            throw new AccountExistingException("Existing account with email: " + accountRequest.getEmail());
         }
+    }
+
+    @Override
+    public void login(Account accountRequest) {
+        String email = accountRequest.getEmail();
+        Optional<Account> accountDb = accountRepository.findOptionalByEmail(email);
+
+        if (accountDb.isPresent()) {
+            Account oldAccount = accountDb.get();
+
+            if (oldAccount.getPassword().equals(accountRequest.getPassword())) {
+                System.out.println("!!! Login success !!!");
+            } else {
+                throw new AccountWrongPasswordException("Wrong password for account with email: " + email);
+            }
+        } else {
+            throw new AccountNotFoundException("Not found account with email: " + email);
+        }
+    }
+
+    @Override
+    public void logout() {
+        System.out.println("!!! Logout success !!!");
     }
 
     @Override
@@ -56,6 +81,21 @@ public class AccountServiceImpl implements AccountService {
             Account oldAccount = accountDb.get();
             oldAccount.setEmail(accountRequest.getEmail());
             oldAccount.setPassword(accountRequest.getPassword());
+            oldAccount.setNewsletter(accountRequest.getNewsletter());
+            oldAccount.setUpdatedAt(LocalDateTime.now());
+
+            return accountRepository.save(oldAccount);
+        } else {
+            throw new AccountNotFoundException("Not found account with email: " + email);
+        }
+    }
+
+    @Override
+    public Account changeRole(String email, Account accountRequest) {
+        Optional<Account> accountDb = accountRepository.findOptionalByEmail(email);
+
+        if (accountDb.isPresent()) {
+            Account oldAccount = accountDb.get();
             oldAccount.setUpdatedAt(LocalDateTime.now());
             oldAccount.setRole(accountRequest.getRole());
 

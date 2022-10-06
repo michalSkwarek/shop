@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -35,20 +33,18 @@ public class AccountController {
         return ResponseEntity.ok(account);
     }
 
-    @PostMapping(value = "/accounts/create")
-    public ResponseEntity<Account> createAccount(@RequestBody Account accountRequest) {
-        Account createdAccount = accountService.create(accountRequest);
-
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("/{username}").buildAndExpand(createdAccount.getEmail()).toUri();
-
-        return ResponseEntity.created(location).body(createdAccount);
-    }
-
     @PutMapping(value = "/accounts/{email}")
     public ResponseEntity<Account> updateAccount(@PathVariable("email") String email,
                                                  @RequestBody Account accountRequest) {
         Account updatedAccount = accountService.update(email, accountRequest);
+
+        return ResponseEntity.ok(updatedAccount);
+    }
+
+    @PutMapping(value = "/accounts/{email}/permission")
+    public ResponseEntity<Account> changeRole(@PathVariable("email") String email,
+                                              @RequestBody Account accountRequest) {
+        Account updatedAccount = accountService.changeRole(email, accountRequest);
 
         return ResponseEntity.ok(updatedAccount);
     }

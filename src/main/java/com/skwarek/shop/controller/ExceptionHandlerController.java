@@ -20,8 +20,16 @@ public class ExceptionHandlerController {
 
     @ExceptionHandler(AccountExistingException.class)
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
-    public ResponseEntity<String> accountDuplicate() {
+    public ResponseEntity<String> accountExisting() {
         String error = "This account already exists.";
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
+
+    @ExceptionHandler(AccountWrongPasswordException.class)
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    public ResponseEntity<String> accountWrongPassword() {
+        String error = "This account has got a different password.";
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
@@ -52,7 +60,7 @@ public class ExceptionHandlerController {
 
     @ExceptionHandler(CategoryExistingException.class)
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
-    public ResponseEntity<String> categoryDuplicate() {
+    public ResponseEntity<String> categoryExisting() {
         String error = "This category already exists.";
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
@@ -68,7 +76,7 @@ public class ExceptionHandlerController {
 
     @ExceptionHandler(CompanyExistingException.class)
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
-    public ResponseEntity<String> companyDuplicate() {
+    public ResponseEntity<String> companyExisting() {
         String error = "This company already exists.";
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
@@ -84,7 +92,7 @@ public class ExceptionHandlerController {
 
     @ExceptionHandler(UploadFileExistingException.class)
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
-    public ResponseEntity<String> uploadFileDuplicate() {
+    public ResponseEntity<String> uploadFileExisting() {
         String error = "This upload file already exists.";
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
@@ -116,7 +124,7 @@ public class ExceptionHandlerController {
 
     @ExceptionHandler(ProductSpecsExistingException.class)
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
-    public ResponseEntity<String> productSpecsDuplicate() {
+    public ResponseEntity<String> productSpecsExisting() {
         String error = "This product specs already exists.";
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
@@ -148,7 +156,7 @@ public class ExceptionHandlerController {
 
     @ExceptionHandler(ShipmentExistingException.class)
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
-    public ResponseEntity<String> shipmentDuplicate() {
+    public ResponseEntity<String> shipmentExisting() {
         String error = "This shipment already exists.";
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
