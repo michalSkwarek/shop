@@ -1,7 +1,7 @@
 package com.skwarek.shop.service.impl;
 
 import com.skwarek.shop.exception.OrderNotFoundException;
-import com.skwarek.shop.exception.ShipmentDuplicateException;
+import com.skwarek.shop.exception.ShipmentExistingException;
 import com.skwarek.shop.exception.ShipmentNotFoundException;
 import com.skwarek.shop.model.address.Address;
 import com.skwarek.shop.model.order.Order;
@@ -57,7 +57,7 @@ public class ShipmentServiceImpl implements ShipmentService {
 
                 return shipmentRepository.save(newShipment);
             } else {
-                throw new ShipmentDuplicateException("Duplicate shipment for order with id: " + orderId);
+                throw new ShipmentExistingException("Existing shipment for order with id: " + orderId);
             }
         } else {
             throw new OrderNotFoundException("Not found order with id: " + orderId);
@@ -139,7 +139,7 @@ public class ShipmentServiceImpl implements ShipmentService {
 
                 return shipmentRepository.save(oldShipment);
             } else {
-                throw new ShipmentDuplicateException("Duplicate shipment with tracking number: " + shipmentRequest.getTrackingNumber());
+                throw new ShipmentExistingException("Existing shipment with tracking number: " + shipmentRequest.getTrackingNumber());
             }
         } else {
             throw new ShipmentNotFoundException("Not found shipment with id: " + shipmentId);

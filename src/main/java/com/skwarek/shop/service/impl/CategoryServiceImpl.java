@@ -1,6 +1,6 @@
 package com.skwarek.shop.service.impl;
 
-import com.skwarek.shop.exception.CategoryDuplicateException;
+import com.skwarek.shop.exception.CategoryExistingException;
 import com.skwarek.shop.exception.CategoryNotFoundException;
 import com.skwarek.shop.model.product.Category;
 import com.skwarek.shop.repository.CategoryRepository;
@@ -39,7 +39,7 @@ public class CategoryServiceImpl implements CategoryService {
 
             return categoryRepository.save(newCategory);
         } else {
-            throw new CategoryDuplicateException("Duplicate category with name: " + categoryRequest.getName());
+            throw new CategoryExistingException("Existing category with name: " + categoryRequest.getName());
         }
     }
 

@@ -1,6 +1,6 @@
 package com.skwarek.shop.service.impl;
 
-import com.skwarek.shop.exception.UploadFileDuplicateException;
+import com.skwarek.shop.exception.UploadFileExistingException;
 import com.skwarek.shop.exception.UploadFileNotFoundException;
 import com.skwarek.shop.model.file.UploadFile;
 import com.skwarek.shop.repository.UploadFileRepository;
@@ -39,7 +39,7 @@ public class UploadFileServiceImpl implements UploadFileService {
 
             return uploadFileRepository.save(newUploadFile);
         } else {
-            throw new UploadFileDuplicateException("Duplicate upload file with file name: " + uploadFileRequest.getFileName());
+            throw new UploadFileExistingException("Existing upload file with file name: " + uploadFileRequest.getFileName());
         }
     }
 

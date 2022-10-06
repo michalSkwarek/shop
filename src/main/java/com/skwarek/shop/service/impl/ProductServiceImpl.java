@@ -135,7 +135,7 @@ public class ProductServiceImpl implements ProductService {
 
                 return productRepository.save(oldProduct).getProductSpecs();
             } else {
-                throw new ProductSpecsDuplicateException("Duplicate product specs for product with id: " + productId);
+                throw new ProductSpecsExistingException("Existing product specs for product with id: " + productId);
             }
         } else {
             throw new ProductNotFoundException("Not found product with id: " + productId);
