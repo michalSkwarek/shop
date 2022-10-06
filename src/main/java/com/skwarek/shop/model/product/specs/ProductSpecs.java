@@ -2,10 +2,7 @@ package com.skwarek.shop.model.product.specs;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.skwarek.shop.model.product.Product;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 

@@ -1,10 +1,7 @@
 package com.skwarek.shop.model.order;
 
 import com.skwarek.shop.model.address.Address;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -33,15 +30,15 @@ public class Shipment {
     @DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
     private LocalDateTime deliveryDate;
 
-    @Column(name = "shipment_status", columnDefinition = "ENUM('PROCESSING', 'SHIPPED', 'IN_TRANSIT', 'DELIVERED')")
+    @Column(name = "shipment_status", columnDefinition = "ENUM('PROCESSING', 'IN_TRANSIT', 'DELIVERED')")
     @Enumerated(EnumType.STRING)
     private ShipmentStatus shipmentStatus;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "order_id")
     private Order order;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "shipping_address_id")
     private Address shippingAddress;
 
