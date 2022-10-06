@@ -25,18 +25,18 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public Account findByUsername(String username) {
-        return accountRepository.findOptionalByUsername(username)
-                .orElseThrow(() -> new AccountNotFoundException("Not found account with username: " + username));
+    public Account findByEmail(String email) {
+        return accountRepository.findOptionalByEmail(email)
+                .orElseThrow(() -> new AccountNotFoundException("Not found account with email: " + email));
     }
 
     @Override
     public Account create(Account accountRequest) {
-        boolean isAccountExists = accountRepository.existsByUsername(accountRequest.getUsername());
+        boolean isAccountExists = accountRepository.existsByEmail(accountRequest.getEmail());
 
         if (isAccountExists) {
             Account newAccount = new Account();
-            newAccount.setUsername(accountRequest.getUsername());
+            newAccount.setEmail(accountRequest.getEmail());
             newAccount.setPassword(accountRequest.getPassword());
             newAccount.setEmail(accountRequest.getEmail());
             newAccount.setCreatedAt(LocalDateTime.now());
@@ -46,17 +46,17 @@ public class AccountServiceImpl implements AccountService {
 
             return accountRepository.save(newAccount);
         } else {
-            throw new AccountDuplicateException("Duplicate account with username: " + accountRequest.getUsername());
+            throw new AccountDuplicateException("Duplicate account with email: " + accountRequest.getEmail());
         }
     }
 
     @Override
-    public Account update(String username, Account accountRequest) {
-        Optional<Account> accountDb = accountRepository.findOptionalByUsername(username);
+    public Account update(String email, Account accountRequest) {
+        Optional<Account> accountDb = accountRepository.findOptionalByEmail(email);
 
         if (accountDb.isPresent()) {
             Account oldAccount = accountDb.get();
-            oldAccount.setUsername(accountRequest.getUsername());
+            oldAccount.setEmail(accountRequest.getEmail());
             oldAccount.setPassword(accountRequest.getPassword());
             oldAccount.setEmail(accountRequest.getEmail());
             oldAccount.setUpdatedAt(LocalDateTime.now());
@@ -65,18 +65,18 @@ public class AccountServiceImpl implements AccountService {
 
             return accountRepository.save(oldAccount);
         } else {
-            throw new AccountNotFoundException("Not found account with username: " + username);
+            throw new AccountNotFoundException("Not found account with email: " + email);
         }
     }
 
     @Override
-    public void deleteByUsername(String username) {
-        boolean isAccountExists = accountRepository.existsByUsername(username);
+    public void deleteByEmail(String email) {
+        boolean isAccountExists = accountRepository.existsByEmail(email);
 
         if (isAccountExists) {
-            accountRepository.deleteByUsername(username);
+            accountRepository.deleteByEmail(email);
         } else {
-            throw new AccountNotFoundException("Not found account with username: " + username);
+            throw new AccountNotFoundException("Not found account with email: " + email);
         }
     }
 

@@ -28,9 +28,9 @@ public class AccountController {
         }
     }
 
-    @GetMapping(value = "/accounts/{username}")
-    public ResponseEntity<Account> getAccountByUsername(@PathVariable("username") String username) {
-        Account account = accountService.findByUsername(username);
+    @GetMapping(value = "/accounts/{email}")
+    public ResponseEntity<Account> getAccountByEmail(@PathVariable("email") String email) {
+        Account account = accountService.findByEmail(email);
 
         return ResponseEntity.ok(account);
     }
@@ -40,22 +40,22 @@ public class AccountController {
         Account createdAccount = accountService.create(accountRequest);
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("/{username}").buildAndExpand(createdAccount.getUsername()).toUri();
+                .path("/{username}").buildAndExpand(createdAccount.getEmail()).toUri();
 
         return ResponseEntity.created(location).body(createdAccount);
     }
 
-    @PutMapping(value = "/accounts/{username}")
-    public ResponseEntity<Account> updateAccount(@PathVariable("username") String username,
-                                                   @RequestBody Account accountRequest) {
-        Account updatedAccount = accountService.update(username, accountRequest);
+    @PutMapping(value = "/accounts/{email}")
+    public ResponseEntity<Account> updateAccount(@PathVariable("email") String email,
+                                                 @RequestBody Account accountRequest) {
+        Account updatedAccount = accountService.update(email, accountRequest);
 
         return ResponseEntity.ok(updatedAccount);
     }
 
-    @DeleteMapping(value = "/accounts/{username}")
-    public ResponseEntity<HttpStatus> deleteAccountByUsername(@PathVariable("username") String username) {
-        accountService.deleteByUsername(username);
+    @DeleteMapping(value = "/accounts/{email}")
+    public ResponseEntity<HttpStatus> deleteAccountByEmail(@PathVariable("email") String email) {
+        accountService.deleteByEmail(email);
 
         return ResponseEntity.noContent().build();
     }

@@ -38,8 +38,8 @@ public class CommentServiceImpl implements CommentService {
         Optional<Product> productDb = productRepository.findById(productId);
 
         if (productDb.isPresent()) {
-            String username = commentRequest.getCreatedBy().getUsername();
-            Optional<Account> accountDb = accountRepository.findOptionalByUsername(username);
+            String username = commentRequest.getCreatedBy().getEmail();
+            Optional<Account> accountDb = accountRepository.findOptionalByEmail(username);
 
             if (accountDb.isPresent()) {
                 Comment newComment = new Comment();
@@ -100,13 +100,13 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public List<Comment> findByUsername(String username) {
-        boolean isAccountExists = accountRepository.existsByUsername(username);
+    public List<Comment> findByEmail(String email) {
+        boolean isAccountExists = accountRepository.existsByEmail(email);
 
         if (isAccountExists) {
-            return commentRepository.findByCreatedByUsername(username);
+            return commentRepository.findByCreatedByEmail(email);
         } else {
-            throw new AccountNotFoundException("Not found account with username: " + username);
+            throw new AccountNotFoundException("Not found account with email: " + email);
         }
     }
 

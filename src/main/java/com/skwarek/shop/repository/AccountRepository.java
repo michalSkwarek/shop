@@ -7,10 +7,10 @@ import java.util.Optional;
 
 public interface AccountRepository extends JpaRepository<Account, Long> {
 
-    boolean existsByUsername(String username);
+    boolean existsByEmail(String username);
 
-    Optional<Account> findOptionalByUsername(String username);
+    Optional<Account> findOptionalByEmail(String username);
 
-    void deleteByUsername(String username);
+    void deleteByEmail(String username);
 
 }

@@ -16,6 +16,6 @@ public interface CommentService {
 
     List<Comment> findByProductId(Long productId);
 
-    List<Comment> findByUsername(String username);
+    List<Comment> findByEmail(String email);
 
 }

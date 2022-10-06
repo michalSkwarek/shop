@@ -61,9 +61,9 @@ public class CommentController {
         }
     }
 
-    @GetMapping(value = "/accounts/{username}/comments")
-    public ResponseEntity<List<Comment>> getAllCommentsOfAccountByUsername(@PathVariable("username") String username) {
-        List<Comment> comments = commentService.findByUsername(username);
+    @GetMapping(value = "/accounts/{email}/comments")
+    public ResponseEntity<List<Comment>> getAllCommentsOfAccountByEmail(@PathVariable("email") String email) {
+        List<Comment> comments = commentService.findByEmail(email);
 
         if (!comments.isEmpty()) {
             return ResponseEntity.ok(comments);
