@@ -47,10 +47,10 @@ INSERT INTO product_specs (id, name) VALUES (3, 'spec 3');
 INSERT INTO product_specs (id, name) VALUES (4, 'spec 4');
 
 -- add few product details
-INSERT INTO product_details (id, created_at, updated_at, account_id) VALUES (1, STR_TO_DATE('21-03-2007 05:31:55', '%d-%m-%Y %H:%i:%s'), STR_TO_DATE('21-03-2007 06:31:55', '%d-%m-%Y %H:%i:%s'), 1);
-INSERT INTO product_details (id, created_at, updated_at, account_id) VALUES (2, STR_TO_DATE('22-03-2007 05:31:55', '%d-%m-%Y %H:%i:%s'), STR_TO_DATE('22-03-2007 06:31:55', '%d-%m-%Y %H:%i:%s'), 1);
-INSERT INTO product_details (id, created_at, updated_at, account_id) VALUES (3, STR_TO_DATE('23-03-2007 05:31:55', '%d-%m-%Y %H:%i:%s'), null, 1);
-INSERT INTO product_details (id, created_at, updated_at, account_id) VALUES (4, STR_TO_DATE('24-03-2007 05:31:55', '%d-%m-%Y %H:%i:%s'), null, 1);
+INSERT INTO product_details (id, created_at, updated_at) VALUES (1, STR_TO_DATE('21-03-2007 05:31:55', '%d-%m-%Y %H:%i:%s'), STR_TO_DATE('21-03-2007 06:31:55', '%d-%m-%Y %H:%i:%s'));
+INSERT INTO product_details (id, created_at, updated_at) VALUES (2, STR_TO_DATE('22-03-2007 05:31:55', '%d-%m-%Y %H:%i:%s'), STR_TO_DATE('22-03-2007 06:31:55', '%d-%m-%Y %H:%i:%s'));
+INSERT INTO product_details (id, created_at, updated_at) VALUES (3, STR_TO_DATE('23-03-2007 05:31:55', '%d-%m-%Y %H:%i:%s'), null);
+INSERT INTO product_details (id, created_at, updated_at) VALUES (4, STR_TO_DATE('24-03-2007 05:31:55', '%d-%m-%Y %H:%i:%s'), null);
 
 -- add few products
 INSERT INTO product (id, name, description, unit_price, category_id, company_id, picture_id, product_specs_id, product_details_id) VALUES (1, 'iPhone 13 Plus', 'iPhone 13 Plus simple description', 4479.00, 1, 1, 1001, 1, 1);
@@ -65,7 +65,7 @@ INSERT INTO product (id, name, description, unit_price, category_id, company_id,
 INSERT INTO upload_file (id, file_name, data) VALUES (1005, 'product1005.jpg', null);
 
 -- add few product details
-INSERT INTO product_details (id, created_at, updated_at, account_id) VALUES (5, STR_TO_DATE('25-03-2007 05:31:55', '%d-%m-%Y %H:%i:%s'), null, 1);
+INSERT INTO product_details (id, created_at, updated_at) VALUES (5, STR_TO_DATE('25-03-2007 05:31:55', '%d-%m-%Y %H:%i:%s'), null);
 
 -- add few products
 INSERT INTO product (id, name, description, unit_price, category_id, company_id, picture_id, product_specs_id, product_details_id) VALUES (5, 'iPad 5', 'iPad 5 simple description', 2399.00, 2, 1, 1005, null, 5);

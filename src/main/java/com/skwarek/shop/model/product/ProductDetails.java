@@ -1,7 +1,6 @@
 package com.skwarek.shop.model.product;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.skwarek.shop.model.user.Account;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -31,9 +30,5 @@ public class ProductDetails {
     @OneToOne(mappedBy = "productDetails", fetch = FetchType.LAZY)
     @JsonIgnore
     private Product product;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "account_id")
-    private Account createdBy;
 
 }
