@@ -1,23 +1,33 @@
-import React from 'react';
-import {Routes, Route, Link} from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import './App.css';
+import React from "react";
+import {Routes, Route} from "react-router-dom";
+// import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import "./i18n";
+import {useTranslation} from "react-i18next";
 import ProductsList from "./components/ProductsList";
 import Home from "./components/Home";
+import i18next from "i18next";
 
 const App: React.FC = () => {
+    const {t} = useTranslation();
+
     return (
         <div>
             <div>
+                <button onClick={() => i18next.changeLanguage("en")}>English</button>
+                <button onClick={() => i18next.changeLanguage("pl")}>Polski</button>
+            </div>
+
+            <div>
                 <div>
-                    <Link to={"/"}>
-                        home
-                    </Link>
+                    <a href={"/"}>
+                        {t("page.home")}
+                    </a>
                 </div>
                 <div>
-                    <Link to={"/products"}>
-                        products
-                    </Link>
+                    <a href={"/products"}>
+                        {t("page.products")}
+                    </a>
                 </div>
                 {/*<div>*/}
                 {/*  <Link to={"/add"}>*/}

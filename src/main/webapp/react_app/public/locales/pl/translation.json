@@ -1,0 +1,13 @@
+{
+  "welcome": "Witamy ciebie",
+  "page": {
+    "home": "Strona domowa",
+    "products": "Produkty"
+  },
+  "products": {
+    "message": {
+      "addNewProduct": "Dodaj nowy produkt",
+      "allProducts": "Wszystkie produkty"
+    }
+  }
+}
