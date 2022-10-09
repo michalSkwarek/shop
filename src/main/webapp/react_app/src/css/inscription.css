@@ -1,0 +1,33 @@
+.welcome {
+    text-align: center;
+    font-size: 200%;
+}
+.heading {
+    margin: 10px 0;
+}
+.total-cart {
+    text-align: left;
+    color: #008000;
+}
+.product-order-confirm {
+    text-align: center;
+    padding: 20px 37px;
+}
+.info-view {
+    color: #000000;
+    text-align: center;
+    padding: 100px;
+    font-size: 200%;
+}
+.thanks-view {
+    color: #008000;
+    text-align: center;
+    padding: 100px;
+    font-size: 200%;
+}
+.error-view {
+    color: #FF0000;
+    text-align: center;
+    padding: 100px;
+    font-size: 200%;
+}

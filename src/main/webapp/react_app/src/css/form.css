@@ -1,0 +1,90 @@
+.form {
+    width: 600px;
+    margin: 20px auto;
+}
+.form fieldset {
+    background-color: #FFFFFF;
+    line-height: 1.6em;
+    border: 1px solid #4CAF50;
+    border-radius: 10px;
+    padding: 20px;
+}
+.form legend {
+    color: #FF0000;
+    font-style: italic;
+    font-size: 150%;
+}
+.form .title {
+    width: 100%;
+    padding: 0;
+}
+.field {
+    width: 100%;
+    display: inline-block;
+    border: 1px solid #EFEFEF;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+.input-field {
+    width: 100%;
+    display: inline-block;
+    border: 1px solid #EFEFEF;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 6px 20px;
+}
+.image {
+    text-align: center;
+}
+.form select {
+    width: 100%;
+}
+.specifications {
+    width: 600px;
+    margin: 20px auto;
+    background-color: #FFFFFF;
+    line-height: 1.6em;
+    border: 1px solid #4C0050;
+    border-radius: 10px;
+    padding: 20px;
+}
+.specifications .description {
+    color: #FF0000;
+    text-align: center;
+    font-style: italic;
+    font-size: 150%;
+    padding: 20px 0;
+}
+.specifications .title {
+    width: 130px;
+    float: left;
+    text-align: right;
+    padding-right: 10px;
+}
+.specifications .data {
+    width: 100%;
+    padding: 0;
+    color: #A52A2A;
+}
+.box {
+    border-bottom: 1px solid #EFEFEF;
+    padding: 10px 0;
+}
+.box p {
+    color: #8A2BE2;
+    font-size: 150%;
+    font-style: italic;
+    text-align: center;
+    margin: 10px 0 5px 0;
+}
+.select-box {
+    padding-top: 10px;
+}
+.error {
+    color: #FF0000;
+    font-size: 75%;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}

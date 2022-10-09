@@ -1,0 +1,27 @@
+.category {
+    text-align: center;
+}
+.category div a {
+    text-decoration: none;
+}
+.product {
+    text-align: center;
+    padding: 20px 0;
+}
+.product-frame {
+    float: left;
+    width: 230px;
+    margin: 0 4px 30px 4px;
+    border: 1px solid #000000;
+}
+.product div p {
+    margin: 10px 0;
+}
+.manufacturer {
+    text-align: center;
+    clear: left;
+}
+.manufacturer a {
+    text-decoration: none;
+    margin: 3px;
+}

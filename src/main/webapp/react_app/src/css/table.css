@@ -1,0 +1,36 @@
+.table {
+    margin: 20px auto;
+    text-align: center;
+}
+.list-table {
+    border-spacing: 0;
+    width: 100%;
+}
+.list-table tr.head th {
+    color: #FFFFFF;
+    background-color: #000000;
+    border-bottom: 1px solid #000000;
+    letter-spacing: 0.15em;
+    text-align: center;
+    font-size: 80%;
+    padding: 10px;
+}
+.list-table td {
+    color: #696969;
+    background-color: #ADD8E6;
+    border: 1px solid #000000;
+    padding: 5px 15px;
+    font-size: 90%;
+}
+.list-table td a {
+    text-decoration: none;
+}
+.list-table td a:hover {
+    color: #FF0000;
+}
+.text-right {
+    text-align: right;
+}
+.option {
+    text-align: center;
+}
