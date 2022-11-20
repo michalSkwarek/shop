@@ -1,7 +1,6 @@
 package com.skwarek.shop.service;
 
 import com.skwarek.shop.model.product.Product;
-import com.skwarek.shop.model.product.specs.ProductSpecs;
 
 import java.util.List;
 
@@ -20,14 +19,6 @@ public interface ProductService {
     Product update(Long productId, Product productRequest);
 
     void deleteById(Long productId);
-
-    ProductSpecs findSpecsByProductId(Long productId);
-
-    ProductSpecs createSpecs(Long productId, ProductSpecs productSpecsRequest);
-
-    ProductSpecs updateSpecs(Long productId, ProductSpecs productSpecsRequest);
-
-    void deleteSpecsByProductId(Long productId);
 
     List<Product> findProductsByTagsId(Long tagId);
 

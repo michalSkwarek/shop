@@ -32,7 +32,7 @@ public class CompanyServiceImpl implements CompanyService {
     public Company create(Company companyRequest) {
         boolean isCompanyExists = companyRepository.existsByName(companyRequest.getName());
 
-        if (isCompanyExists) {
+        if (!isCompanyExists) {
             Company newCompany = new Company();
             newCompany.setName(companyRequest.getName());
             newCompany.setWebsite(companyRequest.getWebsite());

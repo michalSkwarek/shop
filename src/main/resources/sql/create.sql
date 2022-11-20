@@ -27,9 +27,9 @@ INSERT INTO upload_file (id, file_name, data) VALUES (2, 'samsung.jpg', null);
 INSERT INTO upload_file (id, file_name, data) VALUES (3, 'huawei.jpg', null);
 
 -- add few companies
-INSERT INTO company (id, name, website, phone_number, logo_id) VALUES (1, 'Apple', 'www.apple.com', '800123456', 1);
-INSERT INTO company (id, name, website, phone_number, logo_id) VALUES (2, 'Samsung', 'www.samsung.com', '800111222', 2);
-INSERT INTO company (id, name, website, phone_number, logo_id) VALUES (3, 'Huawei', 'www.huawei.com', '800112233', 3);
+INSERT INTO company (id, name, website, phone_number, logo_id) VALUES (1, 'Apple', 'www.apple.com', '800-692-7753', 1);
+INSERT INTO company (id, name, website, phone_number, logo_id) VALUES (2, 'Samsung', 'www.samsung.com', '800-726-7864', 2);
+INSERT INTO company (id, name, website, phone_number, logo_id) VALUES (3, 'Huawei', 'www.huawei.com', '877-948-2934', 3);
 
 -- ----------------------------------------------
 -- SMARTPHONE
@@ -40,23 +40,11 @@ INSERT INTO upload_file (id, file_name, data) VALUES (1002, 'product1002.jpg', n
 INSERT INTO upload_file (id, file_name, data) VALUES (1003, 'product1003.jpg', null);
 INSERT INTO upload_file (id, file_name, data) VALUES (1004, 'product1004.jpg', null);
 
--- add few product specs
-INSERT INTO product_specs (id, name) VALUES (1, 'spec 1');
-INSERT INTO product_specs (id, name) VALUES (2, 'spec 2');
-INSERT INTO product_specs (id, name) VALUES (3, 'spec 3');
-INSERT INTO product_specs (id, name) VALUES (4, 'spec 4');
-
--- add few product details
-INSERT INTO product_details (id, created_at, updated_at) VALUES (1, STR_TO_DATE('21-03-2007 05:31:55', '%d-%m-%Y %H:%i:%s'), STR_TO_DATE('21-03-2007 06:31:55', '%d-%m-%Y %H:%i:%s'));
-INSERT INTO product_details (id, created_at, updated_at) VALUES (2, STR_TO_DATE('22-03-2007 05:31:55', '%d-%m-%Y %H:%i:%s'), STR_TO_DATE('22-03-2007 06:31:55', '%d-%m-%Y %H:%i:%s'));
-INSERT INTO product_details (id, created_at, updated_at) VALUES (3, STR_TO_DATE('23-03-2007 05:31:55', '%d-%m-%Y %H:%i:%s'), null);
-INSERT INTO product_details (id, created_at, updated_at) VALUES (4, STR_TO_DATE('24-03-2007 05:31:55', '%d-%m-%Y %H:%i:%s'), null);
-
 -- add few products
-INSERT INTO product (id, name, description, unit_price, category_id, company_id, picture_id, product_specs_id, product_details_id) VALUES (1, 'iPhone 13 Plus', 'iPhone 13 Plus simple description', 4479.00, 1, 1, 1001, 1, 1);
-INSERT INTO product (id, name, description, unit_price, category_id, company_id, picture_id, product_specs_id, product_details_id) VALUES (2, 'iPhone 13', 'iPhone 13 simple description', 3879.00, 1, 1, 1002, 2, 2);
-INSERT INTO product (id, name, description, unit_price, category_id, company_id, picture_id, product_specs_id, product_details_id) VALUES (3, 'iPhone 12 SE', 'iPhone 12 SE simple description', 2999.00, 1, 1, 1003, 3, 3);
-INSERT INTO product (id, name, description, unit_price, category_id, company_id, picture_id, product_specs_id, product_details_id) VALUES (4, 'Galaxy 10', 'Galaxy 10 simple description', 3349.00, 1, 2, 1004, 4, 4);
+INSERT INTO product (id, name, description, unit_price, category_id, company_id, picture_id) VALUES (1, 'iPhone 13 Plus', 'iPhone 13 Plus simple description', 4479.00, 1, 1, 1001);
+INSERT INTO product (id, name, description, unit_price, category_id, company_id, picture_id) VALUES (2, 'iPhone 13', 'iPhone 13 simple description', 3879.00, 1, 1, 1002);
+INSERT INTO product (id, name, description, unit_price, category_id, company_id, picture_id) VALUES (3, 'iPhone 12 SE', 'iPhone 12 SE simple description', 2999.00, 1, 1, 1003);
+INSERT INTO product (id, name, description, unit_price, category_id, company_id, picture_id) VALUES (4, 'Galaxy 10', 'Galaxy 10 simple description', 3349.00, 1, 2, 1004);
 
 -- ----------------------------------------------
 -- TABLET
@@ -64,11 +52,8 @@ INSERT INTO product (id, name, description, unit_price, category_id, company_id,
 -- add few pictures
 INSERT INTO upload_file (id, file_name, data) VALUES (1005, 'product1005.jpg', null);
 
--- add few product details
-INSERT INTO product_details (id, created_at, updated_at) VALUES (5, STR_TO_DATE('25-03-2007 05:31:55', '%d-%m-%Y %H:%i:%s'), null);
-
 -- add few products
-INSERT INTO product (id, name, description, unit_price, category_id, company_id, picture_id, product_specs_id, product_details_id) VALUES (5, 'iPad 5', 'iPad 5 simple description', 2399.00, 2, 1, 1005, null, 5);
+INSERT INTO product (id, name, description, unit_price, category_id, company_id, picture_id) VALUES (5, 'iPad 5', 'iPad 5 simple description', 2399.00, 2, 1, 1005);
 
 -- ----------------------------------------------
 -- add few comments

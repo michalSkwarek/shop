@@ -26,9 +26,9 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public Account findByEmail(String email) {
-        return accountRepository.findOptionalByEmail(email)
-                .orElseThrow(() -> new AccountNotFoundException("Not found account with email: " + email));
+    public Account findById(Long accountId) {
+        return accountRepository.findById(accountId)
+                .orElseThrow(() -> new AccountNotFoundException("Not found account with id: " + accountId));
     }
 
     @Override
@@ -74,8 +74,8 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public Account update(String email, Account accountRequest) {
-        Optional<Account> accountDb = accountRepository.findOptionalByEmail(email);
+    public Account update(Long accountId, Account accountRequest) {
+        Optional<Account> accountDb = accountRepository.findById(accountId);
 
         if (accountDb.isPresent()) {
             Account oldAccount = accountDb.get();
@@ -86,13 +86,13 @@ public class AccountServiceImpl implements AccountService {
 
             return accountRepository.save(oldAccount);
         } else {
-            throw new AccountNotFoundException("Not found account with email: " + email);
+            throw new AccountNotFoundException("Not found account with id: " + accountId);
         }
     }
 
     @Override
-    public Account changeRole(String email, Account accountRequest) {
-        Optional<Account> accountDb = accountRepository.findOptionalByEmail(email);
+    public Account changeRole(Long accountId, Account accountRequest) {
+        Optional<Account> accountDb = accountRepository.findById(accountId);
 
         if (accountDb.isPresent()) {
             Account oldAccount = accountDb.get();
@@ -101,18 +101,18 @@ public class AccountServiceImpl implements AccountService {
 
             return accountRepository.save(oldAccount);
         } else {
-            throw new AccountNotFoundException("Not found account with email: " + email);
+            throw new AccountNotFoundException("Not found account with id: " + accountId);
         }
     }
 
     @Override
-    public void deleteByEmail(String email) {
-        boolean isAccountExists = accountRepository.existsByEmail(email);
+    public void deleteById(Long accountId) {
+        boolean isAccountExists = accountRepository.existsById(accountId);
 
         if (isAccountExists) {
-            accountRepository.deleteByEmail(email);
+            accountRepository.deleteById(accountId);
         } else {
-            throw new AccountNotFoundException("Not found account with email: " + email);
+            throw new AccountNotFoundException("Not found account with id: " + accountId);
         }
     }
 

@@ -10,6 +10,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 
+@CrossOrigin(origins = "http://localhost:8081")
 @RestController
 public class AuthController {
 
@@ -21,7 +22,7 @@ public class AuthController {
         Account createdAccount = accountService.create(accountRequest);
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().replacePath("/accounts")
-                .path("/{email}").buildAndExpand(createdAccount.getEmail()).toUri();
+                .path("/{accountId}").buildAndExpand(createdAccount.getId()).toUri();
 
         return ResponseEntity.created(location).body(createdAccount);
     }

@@ -11,6 +11,4 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
 
     Optional<Account> findOptionalByEmail(String username);
 
-    void deleteByEmail(String username);
-
 }

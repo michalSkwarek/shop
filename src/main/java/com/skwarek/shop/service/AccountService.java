@@ -8,7 +8,7 @@ public interface AccountService {
 
     List<Account> findAll();
 
-    Account findByEmail(String email);
+    Account findById(Long accountId);
 
     Account create(Account accountRequest);
 
@@ -16,10 +16,10 @@ public interface AccountService {
 
     void logout();
 
-    Account update(String email, Account accountRequest);
+    Account update(Long accountId, Account accountRequest);
 
-    Account changeRole(String email, Account accountRequest);
+    Account changeRole(Long accountId, Account accountRequest);
 
-    void deleteByEmail(String email);
+    void deleteById(Long accountId);
 
 }

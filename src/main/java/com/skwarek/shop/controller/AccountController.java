@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:8081")
 @RestController
 public class AccountController {
 
@@ -26,32 +27,32 @@ public class AccountController {
         }
     }
 
-    @GetMapping(value = "/accounts/{email}")
-    public ResponseEntity<Account> getAccountByEmail(@PathVariable("email") String email) {
-        Account account = accountService.findByEmail(email);
+    @GetMapping(value = "/accounts/{accountId}")
+    public ResponseEntity<Account> getAccountById(@PathVariable("accountId") Long accountId) {
+        Account account = accountService.findById(accountId);
 
         return ResponseEntity.ok(account);
     }
 
-    @PutMapping(value = "/accounts/{email}")
-    public ResponseEntity<Account> updateAccount(@PathVariable("email") String email,
+    @PutMapping(value = "/accounts/{accountId}")
+    public ResponseEntity<Account> updateAccount(@PathVariable("accountId") Long accountId,
                                                  @RequestBody Account accountRequest) {
-        Account updatedAccount = accountService.update(email, accountRequest);
+        Account updatedAccount = accountService.update(accountId, accountRequest);
 
         return ResponseEntity.ok(updatedAccount);
     }
 
-    @PutMapping(value = "/accounts/{email}/permission")
-    public ResponseEntity<Account> changeRole(@PathVariable("email") String email,
+    @PutMapping(value = "/accounts/{accountId}/permission")
+    public ResponseEntity<Account> changeRole(@PathVariable("accountId") Long accountId,
                                               @RequestBody Account accountRequest) {
-        Account updatedAccount = accountService.changeRole(email, accountRequest);
+        Account updatedAccount = accountService.changeRole(accountId, accountRequest);
 
         return ResponseEntity.ok(updatedAccount);
     }
 
-    @DeleteMapping(value = "/accounts/{email}")
-    public ResponseEntity<HttpStatus> deleteAccountByEmail(@PathVariable("email") String email) {
-        accountService.deleteByEmail(email);
+    @DeleteMapping(value = "/accounts/{accountId}")
+    public ResponseEntity<HttpStatus> deleteAccountById(@PathVariable("accountId") Long accountId) {
+        accountService.deleteById(accountId);
 
         return ResponseEntity.noContent().build();
     }
