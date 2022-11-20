@@ -1,7 +1,6 @@
 package com.skwarek.shop.model.product;
 
 import com.skwarek.shop.model.file.UploadFile;
-import com.skwarek.shop.model.product.specs.ProductSpecs;
 import lombok.*;
 
 import javax.persistence.*;
@@ -41,14 +40,6 @@ public class Product {
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "picture_id")
     private UploadFile picture;
-
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "product_specs_id")
-    private ProductSpecs productSpecs;
-
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "product_details_id")
-    private ProductDetails productDetails;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "product_tag",

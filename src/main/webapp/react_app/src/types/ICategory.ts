@@ -1,4 +1,4 @@
-export default interface ICategoryData {
+export default interface ICategory {
     id?: any | null,
     name: string,
     description: string,

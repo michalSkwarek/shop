@@ -1,4 +1,4 @@
-export default interface ICompanyData {
+export default interface ICompany {
     id?: any | null,
     name: string,
     website: string,
